@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E030",
+  "category": "E",
+  "carrier": "code",
+  "domain": "an online shop's customer-support assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a software release",
+   "a conference schedule",
+   "a hackathon"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "long",
+   "short",
+   "short",
+   "medium",
+   "medium",
+   "medium",
+   "short",
+   "long",
+   "long",
+   "medium"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 769,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1624,
+  "usd_peak": 0.0020666039999999997,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:51+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "## Release Notes – Support Assistant v2.4.0\n\n**Release date:** 2025-03-18\n\n### New features\n- Added order lookup by email address.\n- The chatbot now supports returning items directly from the chat window.\n- Improved handling of multi-item returns.\n\n### Bug fixes\n- Fixed an issue where the assistant would occasionally repeat the previous answer.\n- Corrected the timezone display for delivery estimates.\n- Resolved a crash when the user uploaded a damaged image.\n\n### Known issues\n- The assistant may still suggest out-of-stock items in rare cases.\n- International shipping estimates are not yet available for all countries.\n\n### Upgrade notes\nNo database migration is required. The configuration file format is unchanged. Please restart the service after deploying.\n\n### Feedback\nWe welcome your feedback via the #support-assistant channel or by emailing support-tools@northwindmarket.com.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Sprint 42 review is moved to Thursday 10am in the Maple room; please update your calendars.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "update calendars",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The hackathon judging criteria are now available on the internal wiki; teams should review them before Friday.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "review criteria",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "We are excited to announce that the call for proposals for the 2026 Customer Support Technology Conference is now open. This year's theme is \"Human + Machine: Better Together,\" and we welcome talks on topics such as AI-assisted support, chatbot design, and agent training. The conference will be held in Chicago on May 12–14, 2026. Proposals are due by January 15, 2026, and notifications will be sent by March 1. For more details and to submit, visit our website at cstc2026.example.com.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The hackathon will kick off on Saturday at 9 AM in the main auditorium. All participants must bring their laptops and chargers. We will provide meals and snacks throughout the day. Mentors will be available to help with technical questions. The final presentations will begin at 6 PM, followed by judging and awards.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "bring laptops",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The customer-support assistant uses a fine-tuned language model to answer common questions about orders, returns, and shipping. It is integrated with the order management system to provide real-time status updates. The assistant can handle multiple languages and is available 24/7. Feedback from users is collected and reviewed weekly to improve responses.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Please ensure the release candidate is tagged and pushed to the staging branch by EOD.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "tag and push release candidate",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "## Configuring the Support Assistant for Custom Workflows\n\nThe support assistant can be configured to handle custom workflows by editing the `config/support_assistant.yml` file. This file allows you to define intents, responses, and fallback actions. Below is an example configuration that adds a custom intent for checking loyalty points:\n\n```yaml\nintents:\n  check_loyalty_points:\n    examples:\n      - \"How many points do I have?\"\n      - \"Check my rewards balance\"\n    action: query_loyalty_api\n    response: \"You have {points} points.\"\n```\n\nAfter editing the configuration, restart the service and test the new intent using the `/simulate` endpoint. Note that changes to the configuration may take up to 10 minutes to propagate.\n\nFor more advanced workflows, you can write custom Python plugins. Place them in the `plugins/` directory and reference them in the configuration. The plugin API is documented in `docs/plugin_api.md`. Always test plugins in a staging environment before deploying to production.\n\nIf you encounter issues, check the logs in `var/log/support_assistant.log` for errors.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "## Hackathon Schedule\n\n**Saturday, October 18**\n- 9:00 AM – Check-in and breakfast\n- 10:00 AM – Opening remarks and team formation\n- 11:00 AM – Hacking begins\n- 1:00 PM – Lunch\n- 6:00 PM – Dinner and progress check-in\n\n**Sunday, October 19**\n- 9:00 AM – Breakfast\n- 12:00 PM – Code freeze and submission deadline\n- 1:00 PM – Judging\n- 3:00 PM – Awards ceremony\n\nAll events will take place in the Grand Hall unless otherwise noted. Please bring your own laptop and charger. Mentors will be available throughout the event for technical guidance. If you have any questions, contact the organizers at hackathon@example.org.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The release notes for version 3.1.0 mention that the chatbot now supports order tracking via voice commands. This feature is still in beta and may not work for all carriers. We recommend testing it with a few sample orders before rolling it out to all users.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "test feature",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

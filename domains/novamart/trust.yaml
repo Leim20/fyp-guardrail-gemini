@@ -1,0 +1,70 @@
+# Source-trust classes (P1 deliverable; FR02).
+#
+# Every piece of content that enters the agent context carries exactly one trust class.
+# Core principle: only `system` and `user` may issue instructions. Retrieved documents and
+# tool results are data, so an imperative addressed to the assistant inside them is
+# suspicious by definition.
+#
+# level:            ordering used when content is combined (lowest level wins)
+# can_instruct:     may this source legitimately tell the agent what to do?
+# scan:             input-guard strictness (none | normal | strict); thresholds are chosen
+#                   on validation data in P4, not fixed here
+# taints_arguments: tool-call argument values copied from this source are marked tainted,
+#                   and tainted values are rejected by tools whose policy lists the
+#                   `tainted_argument` rule (tools.yaml)
+
+trust_classes:
+  system:
+    level: 3
+    can_instruct: true
+    scan: none
+    taints_arguments: false
+    examples: [developer system prompt, tool policy]
+    rationale: >
+      Written by the application developer and loaded from the repository, not from any
+      runtime input, so it is the trusted root that defines what the agent may do.
+
+  user:
+    level: 2
+    can_instruct: true
+    scan: normal
+    taints_arguments: false
+    examples: [message from the authenticated customer]
+    rationale: >
+      The customer is entitled to ask for actions on their own account, so their messages are
+      instructions, but only within their own scope; tool policy still applies. Messages are
+      scanned because a malicious customer is the direct-injection attacker.
+
+  internal_data:
+    level: 1
+    can_instruct: false
+    scan: normal
+    taints_arguments: false
+    examples: [official help-centre articles, customer database results]
+    rationale: >
+      Produced by NovaMart systems, so its facts are trusted (an order total from the database
+      is correct), but it is still data, not instructions. It is scanned at normal strictness
+      because official pages can be edited or compromised.
+
+  external_untrusted:
+    level: 0
+    can_instruct: false
+    scan: strict
+    taints_arguments: true
+    examples: [community forum posts, product reviews]
+    rationale: >
+      Written by arbitrary third parties who never interact with the agent directly, which is
+      exactly the indirect prompt-injection attacker. It gets the strictest scan, and any value
+      copied from it (an order number, an email address, a phone number) is tainted so it
+      cannot steer a refund or account change even if the text classifier misses the injection.
+
+taint:
+  sources: [external_untrusted]
+  # Enforced only on tools whose policy lists the `tainted_argument` deny rule (tools.yaml).
+  # send_email deliberately omits it: forwarding retrieved text to the customer's own address
+  # is legitimate, and exfiltration is already stopped by `recipient_not_registered`. What the
+  # email may contain is limited by `unapproved_content` instead.
+  match: >
+    An argument value is tainted when its normalised form (lower-cased, whitespace collapsed)
+    appears in content from a taint source and does not appear in the user's own messages.
+    Values the customer typed themselves are never tainted.

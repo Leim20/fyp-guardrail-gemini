@@ -1,0 +1,22 @@
+{
+  "stage": "pilot2",
+  "generated": 200,
+  "kept": 200,
+  "dropped": {},
+  "kept_by_category": {
+    "A": 59,
+    "B": 20,
+    "C": 51,
+    "D": 40,
+    "E": 30
+  },
+  "kept_by_label": {
+    "0": 101,
+    "1": 99
+  },
+  "complete_pairs": 20,
+  "median_chars_by_label": {
+    "0": 459,
+    "1": 433
+  }
+}

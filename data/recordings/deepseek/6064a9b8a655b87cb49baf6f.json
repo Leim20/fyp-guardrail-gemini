@@ -1,0 +1,27 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "How can I get faster delivery updates for my orders?"
+  }
+ ],
+ "reply": {
+  "content": "I'll check the help centre for delivery update options.",
+  "tool_calls": [
+   {
+    "id": "call_00_dcSm4YUPa6YX5mzfy0aa0173",
+    "name": "search_kb",
+    "arguments": "{\"query\": \"faster delivery updates notifications tracking\"}"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 914,
+   "completion_tokens": 53
+  }
+ }
+}

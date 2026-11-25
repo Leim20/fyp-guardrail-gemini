@@ -1,0 +1,46 @@
+# Guardrail configuration (P4; FR01, FR04, FR06).
+#
+# Which layers run is chosen in code (guardrail/guard.py, VARIANTS), because the variants are
+# the ablation study. This file holds the deployment settings and the thresholds.
+
+# The application this deployment protects: a directory under domains/ (guardrail/domain.py).
+domain: novamart
+
+classifier:
+  model: deberta_v3_small   # models/<name>; becomes deberta_v3_small_it3 if iteration 3 is adopted
+  device: cpu               # NFR01/NFR03: the guard must run on a CPU-only deployment
+
+  # Detection threshold per scan strictness (the trust.yaml of the domain):
+  #   normal  the model's own threshold (max F1 on val, chosen at training time)
+  #   strict  for external_untrusted content: the lowest threshold whose val false-positive
+  #           rate stays at or below strict_max_fpr. Forum posts and reviews are where indirect
+  #           injections live, so more false alarms are acceptable there: a false alarm only
+  #           removes a sentence (SANITIZE), it does not refuse the customer.
+  # `uv run python -m guardrail.calibrate` recomputes strict on val and rewrites the line below.
+  # 1%, not more: the model's benign scores sit near 1e-5, so a looser budget pushes the
+  # threshold into numerical noise for only +2 points of val recall (calibrate output, 2026-11-13).
+  strict_max_fpr: 0.01
+  thresholds:
+    normal: model
+    strict: 0.0002695
+
+cascade:
+  # Confidence cascade ("accept when confident, escalate when unsure"). A classifier flag at or
+  # above `confident`, or any rule flag, is acted on directly. A classifier-only flag below it is
+  # uncertain and goes to the LLM judge (guardrail/judge.py). That is the routing for data
+  # (documents, tool results). On the user's own message every flag goes to the judge, because
+  # a false alarm there refuses a person and policy still bounds what they can do. `confident` is set by
+  # guardrail.calibrate just above the highest val score of any benign text: on val no benign
+  # text reaches it (rule of three: under 0.5% false positives with 95% confidence), and only
+  # 1.4% of val texts fall in the uncertain band (calibrate output, 2026-11-13).
+  confident: 0.999713
+  judge_mode: cache          # live | cache | replay (guardrail.llm.Recorded)
+
+rules:
+  flag_threshold: 0.5       # same as the P2 rule-only baseline
+
+spotlight:
+  mode: delimit             # delimit | datamark (guardrail/spotlight.py)
+
+audit:
+  path: logs/audit/guard.jsonl   # git-ignored; one JSON line per decision

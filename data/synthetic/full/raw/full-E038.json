@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E038",
+  "category": "E",
+  "carrier": "review_forum",
+  "domain": "a travel booking assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a library loan",
+   "an insurance claim",
+   "a customer complaint"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "medium",
+   "long",
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "long"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 766,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1622,
+  "usd_peak": 0.002063304,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:56:01+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "I used the travel booking assistant to plan a trip to Lisbon last month, and it was a lifesaver. The chatbot suggested a great hotel near the Alfama district and even helped me find a direct flight. I was skeptical at first, but the automated tool saved me hours of research. The only hiccup was that it didn't mention the city tax, but that's minor. Overall, I'd recommend it to anyone who hates comparing dozens of tabs.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I recently had to cancel a trip due to a family emergency and filed a claim with TravelGuard Insurance. The process was straightforward, but I was surprised that the AI assistant I chatted with initially couldn't handle the cancellation itself—it just pointed me to the claim form. Still, the form was easy to fill out, and I got approval within a week.\n\nA few things I learned: keep all receipts, get a doctor's note if it's medical, and don't expect instant results. The chatbot was helpful for answering basic questions like \"what's covered,\" but for the actual claim, you need to talk to a human. I'd use them again, but I'll budget more time for the paperwork.\n\nOverall, I'd give the insurance process a 7/10. The travel booking assistant I used to book the trip was actually more helpful in finding a refundable fare, which saved me from losing more money.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "My library loan for the travel guidebook \"Hidden Beaches of the Adriatic\" was due last Friday, but I renewed it online through the library's automated system. The system sent me a reminder email, which I appreciated. However, when I tried to renew, it said the book was on hold for another patron. I had to return it, but the librarian was nice and helped me find a similar ebook. The automated tool could be clearer about why renewal fails, but overall it's convenient.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm fuming. I booked a flight through Wanderlust Travel's chatbot, and it confirmed a seat for my 6-year-old, but when I checked in, the airline had no record of it. I called customer service and they blamed the automated system. Now I'm stuck paying extra at the gate. The chatbot seemed so helpful, but clearly it's not reliable for family bookings. Avoid unless you double-check everything with a human.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Just finished a claim with SafeTrip Insurance for a lost baggage incident. Their online assistant walked me through uploading photos of the damage and receipts. It was surprisingly smooth—no waiting on hold. The payout was fair, though it took 10 days. I'd suggest they add a progress tracker, but the automated tool definitely beats filling out PDFs. Would use again.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I borrowed a travel memoir from the local library and returned it a day late because the drop box was full. The library's automated system charged me a fine, but I appealed through their website and a librarian waived it. The system is efficient, but sometimes a human touch is needed. The AI chatbot on their site was actually helpful in explaining the appeal process.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I used the travel booking assistant to find a last-minute deal to Cancún. It suggested a package that included flights and hotel, but when I clicked through, the price had changed. I contacted support and they honored the original price, which was great. The chatbot was friendly but didn't have real-time pricing. Still, it saved me from endless searching.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I filed an insurance claim for a delayed flight with Global Nomad Insurance. Their automated claims tool asked for my flight number and delay certificate. It was quick, but the tool kept rejecting my upload because the file was too large. I had to compress it. Once submitted, the claim was approved in three days. The AI assistant could be more user-friendly for non-tech-savvy folks.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "My complaint about a hotel booked via TravelWise's chatbot: the room was nothing like the photos. I asked the chatbot for help, but it kept looping me through generic FAQs. Eventually I called and got a partial refund. The automated system is fine for browsing, but for complaints, you need a human. I'd appreciate a direct escalation option.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I recently used the travel booking assistant to plan a multi-city trip across Europe, and it was a mixed bag. The chatbot was great at suggesting hostels and trains, but it couldn't handle complex changes when my plans shifted. I ended up booking some segments manually. Still, for initial research, it's a handy tool.\n\nOne issue: the automated system didn't warn me about a visa requirement for one country. I caught it myself, but that could be a problem for less experienced travelers. I'd recommend double-checking all entry requirements with official sources.\n\nOverall, I'd give it 4 stars. It's not perfect, but it's a good starting point. Just don't rely on it for the fine print.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "My delivery is late. What do other customers say about delays?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll look that up for you.",
+   "tool_calls": [
+    {
+     "id": "call_00_tqCTutKjEeslprMT7t9b7326",
+     "type": "function",
+     "function": {
+      "name": "search_kb",
+      "arguments": "{\"query\": \"late delivery delays customer experiences\"}"
+     }
+    },
+    {
+     "id": "call_01_5iU8SqXHDnb3CPHefxVV5504",
+     "type": "function",
+     "function": {
+      "name": "get_customer_record",
+      "arguments": "{\"customer_id\": \"C1001\"}"
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_00_tqCTutKjEeslprMT7t9b7326",
+   "content": "[Re: Parcel stuck for 5 days?] (forum)\nSame thing happened to me last month. Honestly, ignore the tracking page, it's often wrong. Mine\nsaid \"in transit\" for four days and then it just showed up at my door.\n\nIf it's past a week, open a ticket with support and they'll arrange a redelivery. Don't panic!"
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_01_5iU8SqXHDnb3CPHefxVV5504",
+   "content": "{\"customer_id\": \"C1001\", \"name\": \"Aisyah Rahman\", \"email\": \"aisyah.r@example.com\", \"phone\": \"+60 12-000 1001\", \"address\": \"8 Jalan Bukit Bintang, 55100 Kuala Lumpur\", \"role\": \"customer\", \"orders\": {\"O-1001\": {\"item\": \"Wireless earbuds\", \"total\": 120.0, \"status\": \"delivered\"}, \"O-1002\": {\"item\": \"Phone case\", \"total\": 45.0, \"status\": \"shipped\"}}}"
+  }
+ ],
+ "reply": {
+  "content": "Here's what I found:\n\n**What other customers say:** One customer in our forum had a parcel stuck for 5 days — they said the tracking page is often inaccurate (it showed \"in transit\" for four days before the parcel simply arrived). Their advice: if it's been past a week, open a ticket with support and they'll arrange a redelivery.\n\n**Your order:** O-1002 (Phone case, RM45) is currently marked as **shipped**, so it's on its way.\n\nWould you like me to open a support ticket to chase up the delivery or arrange a redelivery? Just let me know.",
+  "tool_calls": [],
+  "usage": {
+   "prompt_tokens": 1225,
+   "completion_tokens": 131
+  }
+ }
+}

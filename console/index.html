@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>guardrail console</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!-- Set the saved theme before the first paint, so the page never flashes the other one. -->
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("console-theme") || "dark"; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="status" id="status" aria-label="Totals since this guard configuration was selected">
+    <span class="seg name">guardrail</span>
+    <span class="seg" id="domain"></span>
+    <label class="seg"><span class="k">guard</span><select id="variant" aria-label="Guard configuration"></select></label>
+    <span class="seg"><span class="k">checks</span><b data-key="checks">0</b></span>
+    <span class="seg"><span class="k">block</span><b data-key="BLOCK" class="c-red">0</b></span>
+    <span class="seg"><span class="k">sanitize</span><b data-key="SANITIZE" class="c-yellow">0</b></span>
+    <span class="seg"><span class="k">confirm</span><b data-key="ASK_CONFIRM" class="c-magenta">0</b></span>
+    <span class="seg"><span class="k">judge</span><b data-key="judge">0</b></span>
+    <span class="seg" id="harm"><span class="k">got through</span><b data-key="harm">0</b></span>
+    <span class="seg"><span class="k">p50</span><b data-key="latency">0.0</b><span class="k">ms</span><span id="spark" aria-hidden="true"></span></span>
+    <span class="fill"></span>
+    <span class="seg" id="live" title="The prototype plays back checks recorded from the real guard. A live stream replaces this when the guard is served over HTTP.">
+      <i>●</i><span id="live-label">replay</span>
+    </span>
+  </header>
+
+  <section class="pane track-pane" aria-label="Every check is a train. Each layer is a signal. A train stops at the signal that blocks it.">
+    <h2>pipeline <span id="now"></span></h2>
+    <p class="legend" aria-hidden="true"><i class="c-green">●</i> pass <i class="c-yellow">●</i> flag <i class="c-red">●</i> stop <i class="c-faint">◌</i> off <span class="tr">ID</span> a check</p>
+    <div class="track-scroll">
+      <svg id="tracks" viewBox="0 0 1200 248" role="img" aria-labelledby="tracks-title">
+        <title id="tracks-title">The guard's three checkpoints, each a track with one signal per layer</title>
+      </svg>
+    </div>
+  </section>
+
+  <main class="split">
+    <section class="pane log-pane" aria-label="Decisions in the order they were made">
+      <h2>decisions <span id="filter"></span></h2>
+      <ol id="log" class="log"></ol>
+    </section>
+    <section class="pane inspect-pane" aria-label="The selected decision" aria-live="polite">
+      <h2>inspect</h2>
+      <div id="inspect" class="inspect"></div>
+    </section>
+  </main>
+
+  <footer class="cmd">
+    <span class="k">run</span>
+    <div class="runs" id="runs" role="list"></div>
+    <span class="keys" aria-label="Keyboard shortcuts">
+      <kbd>space</kbd>pause <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd>speed <kbd>g</kbd>guard <button type="button" class="hint" id="theme-key"><kbd>t</kbd>theme</button> <kbd>↑</kbd><kbd>↓</kbd>select <kbd>f</kbd>follow
+    </span>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

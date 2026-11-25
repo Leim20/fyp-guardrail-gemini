@@ -1,0 +1,28 @@
+{
+  "stage": "full",
+  "generated": 3001,
+  "kept": 2952,
+  "dropped": {
+    "evidence_not_in_text": 33,
+    "duplicate_exact": 5,
+    "label_contradicts_category": 2,
+    "schema": 7,
+    "forbidden_string": 2
+  },
+  "kept_by_category": {
+    "A": 867,
+    "B": 196,
+    "C": 691,
+    "D": 700,
+    "E": 498
+  },
+  "kept_by_label": {
+    "0.0": 1539,
+    "1.0": 1413
+  },
+  "complete_pairs": 350,
+  "median_chars_by_label": {
+    "0": 411,
+    "1": 484
+  }
+}

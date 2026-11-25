@@ -1,0 +1,211 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+                      rows  injection   benign  injection_rate
+train              19949.0     8730.0  11219.0           0.438
+val                 1454.0      531.0    923.0           0.365
+test_deepset         116.0       60.0     56.0           0.517
+test_promptshield  23516.0     6486.0  17030.0           0.276
+ood_spml            1997.0     1567.0    430.0           0.785
+ood_lakera           223.0      223.0      0.0           1.000
+ood_bitext          1972.0        0.0   1972.0           0.000
+
+Removed rows:
+             empty  label_conflict  duplicate  leak_exact  leak_near
+train            0               0        123          52        821
+val              0               0          2           4         15
+ood_spml         0               0          3           0          0
+ood_lakera       0               0          0           0          0
+ood_bitext       0               0         28           0          0
+pool_bitext      0               0         35           0          0
+rules: done
+tfidf_lr: done, {'best_params': {'clf__C': 30}, 'cv_f1': 0.9284809318063905, 'threshold': 0.6238097258453164, 'train_rows': 19949, 'fit_seconds': 87.7}
+tfidf_svm: done, {'best_params': {'clf__estimator__C': 3}, 'cv_f1': 0.9281007282682243, 'threshold': 0.5400063872810312, 'train_rows': 19949, 'fit_seconds': 69.2}
+                                 n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set               model                                                                      
+val               rules       1454      1.000   0.279  0.436  0.000    0.638            0.279
+test_deepset      rules        116      1.000   0.233  0.378  0.000    0.617            0.233
+test_promptshield rules      23516      0.866   0.278  0.421  0.016    0.635            0.278
+ood_spml          rules       1997      1.000   0.234  0.380  0.000    0.634            0.272
+ood_lakera        rules        223      1.000   0.596  0.747    NaN      NaN              NaN
+ood_bitext        rules       1972        NaN     NaN    NaN  0.000      NaN              NaN
+scenarios         rules         26      1.000   0.800  0.889  0.000    0.894            0.800
+val               tfidf_lr    1454      0.972   0.915  0.943  0.015    0.990            0.863
+test_deepset      tfidf_lr     116      1.000   0.333  0.500  0.000    0.912            0.550
+test_promptshield tfidf_lr   23516      0.499   0.389  0.437  0.149    0.780            0.024
+ood_spml          tfidf_lr    1997      1.000   0.108  0.195  0.000    0.947            0.722
+ood_lakera        tfidf_lr     223      1.000   0.417  0.589    NaN      NaN              NaN
+ood_bitext        tfidf_lr    1972        NaN     NaN    NaN  0.000      NaN              NaN
+scenarios         tfidf_lr      26      1.000   0.200  0.333  0.000    0.844            0.400
+val               tfidf_svm   1454      0.957   0.928  0.943  0.024    0.988            0.870
+test_deepset      tfidf_svm    116      1.000   0.317  0.481  0.000    0.915            0.567
+test_promptshield tfidf_svm  23516      0.490   0.467  0.479  0.185    0.784            0.021
+ood_spml          tfidf_svm   1997      1.000   0.153  0.266  0.000    0.952            0.728
+ood_lakera        tfidf_svm    223      1.000   0.332  0.498    NaN      NaN              NaN
+ood_bitext        tfidf_svm   1972        NaN     NaN    NaN  0.000      NaN              NaN
+scenarios         tfidf_svm     26      1.000   0.200  0.333  0.000    0.856            0.500
+          threshold latency_median_ms latency_p95_ms
+rules           0.5          0.118155       0.614468
+tfidf_lr    0.62381          1.464126       3.753466
+tfidf_svm  0.540006           2.43379       5.008246
+/home/mot/fyp-guardrail/.venv/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/102 [00:00<?, ?it/s]Loading weights: 100%|██████████| 102/102 [00:00<00:00, 1717.67it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-small
+Key                                     | Status     | 
+----------------------------------------+------------+-
+mask_predictions.dense.weight           | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.bias   | UNEXPECTED | 
+mask_predictions.classifier.bias        | UNEXPECTED | 
+mask_predictions.LayerNorm.bias         | UNEXPECTED | 
+mask_predictions.dense.bias             | UNEXPECTED | 
+mask_predictions.LayerNorm.weight       | UNEXPECTED | 
+lm_predictions.lm_head.dense.weight     | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias       | UNEXPECTED | 
+mask_predictions.classifier.weight      | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight | UNEXPECTED | 
+lm_predictions.lm_head.bias             | UNEXPECTED | 
+classifier.bias                         | MISSING    | 
+classifier.weight                       | MISSING    | 
+pooler.dense.weight                     | MISSING    | 
+pooler.dense.bias                       | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1247 loss 0.6699 | elapsed 0:11 | training ETA 6:45
+epoch 1 step 200/1247 loss 0.2992 | elapsed 0:23 | training ETA 6:59
+epoch 1 step 300/1247 loss 0.0592 | elapsed 0:34 | training ETA 6:40
+epoch 1 step 400/1247 loss 0.0604 | elapsed 0:45 | training ETA 6:21
+epoch 1 step 500/1247 loss 0.0635 | elapsed 0:56 | training ETA 6:08
+epoch 1 step 600/1247 loss 0.0344 | elapsed 1:08 | training ETA 5:59
+epoch 1 step 700/1247 loss 0.0205 | elapsed 1:20 | training ETA 5:49
+epoch 1 step 800/1247 loss 0.0377 | elapsed 1:32 | training ETA 5:41
+epoch 1 step 900/1247 loss 0.0392 | elapsed 1:43 | training ETA 5:25
+epoch 1 step 1000/1247 loss 0.0215 | elapsed 1:54 | training ETA 5:12
+epoch 1 step 1100/1247 loss 0.0551 | elapsed 2:05 | training ETA 5:02
+epoch 1 step 1200/1247 loss 0.0346 | elapsed 2:16 | training ETA 4:49
+epoch 1 done: train loss 0.1129, val ROC-AUC 0.9999
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s]
+epoch 2 step 100/1247 loss 0.0073 | elapsed 2:33 | training ETA 4:33
+epoch 2 step 200/1247 loss 0.0148 | elapsed 2:45 | training ETA 4:23
+epoch 2 step 300/1247 loss 0.0122 | elapsed 2:58 | training ETA 4:13
+epoch 2 step 400/1247 loss 0.0067 | elapsed 3:09 | training ETA 4:00
+epoch 2 step 500/1247 loss 0.0114 | elapsed 3:22 | training ETA 3:50
+epoch 2 step 600/1247 loss 0.0195 | elapsed 3:32 | training ETA 3:38
+epoch 2 step 700/1247 loss 0.0086 | elapsed 3:42 | training ETA 3:25
+epoch 2 step 800/1247 loss 0.0075 | elapsed 3:53 | training ETA 3:13
+epoch 2 step 900/1247 loss 0.0107 | elapsed 4:05 | training ETA 3:02
+epoch 2 step 1000/1247 loss 0.0179 | elapsed 4:17 | training ETA 2:51
+epoch 2 step 1100/1247 loss 0.0025 | elapsed 4:26 | training ETA 2:38
+epoch 2 step 1200/1247 loss 0.0101 | elapsed 4:36 | training ETA 2:26
+epoch 2 done: train loss 0.0104, val ROC-AUC 1.0000
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s]
+epoch 3 step 100/1247 loss 0.0068 | elapsed 4:55 | training ETA 2:10
+epoch 3 step 200/1247 loss 0.0002 | elapsed 5:06 | training ETA 1:59
+epoch 3 step 300/1247 loss 0.0010 | elapsed 5:16 | training ETA 1:47
+epoch 3 step 400/1247 loss 0.0013 | elapsed 5:28 | training ETA 1:36
+epoch 3 step 500/1247 loss 0.0049 | elapsed 5:39 | training ETA 1:24
+epoch 3 step 600/1247 loss 0.0019 | elapsed 5:49 | training ETA 1:13
+epoch 3 step 700/1247 loss 0.0032 | elapsed 6:01 | training ETA 1:01
+epoch 3 step 800/1247 loss 0.0085 | elapsed 6:11 | training ETA 0:50
+epoch 3 step 900/1247 loss 0.0001 | elapsed 6:22 | training ETA 0:39
+epoch 3 step 1000/1247 loss 0.0039 | elapsed 6:35 | training ETA 0:27
+epoch 3 step 1100/1247 loss 0.0000 | elapsed 6:44 | training ETA 0:16
+epoch 3 step 1200/1247 loss 0.0001 | elapsed 6:58 | training ETA 0:05
+epoch 3 done: train loss 0.0025, val ROC-AUC 1.0000
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 19039.71it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.57it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.57it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 17475.58it/s]
+                       n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                
+val                 1454      0.998   1.000  0.999  0.001    1.000            1.000
+test_deepset         116      0.981   0.850  0.911  0.018    0.969            0.850
+test_promptshield  23516      0.757   0.812  0.784  0.099    0.912            0.226
+ood_spml            1997      1.000   0.274  0.431  0.000    0.810            0.359
+ood_lakera           223      1.000   0.758  0.862    NaN      NaN              NaN
+ood_bitext          1972        NaN     NaN    NaN  0.000      NaN              NaN
+scenarios             26      0.875   0.700  0.778  0.062    0.928            0.600
+{'gpu_latency_median_ms': 6.05, 'gpu_latency_p95_ms': 8.31, 'cpu_latency_median_ms': 46.48, 'cpu_latency_p95_ms': 184.23}
+Loading weights:   0%|          | 0/136 [00:00<?, ?it/s]Loading weights: 100%|██████████| 136/136 [00:00<00:00, 5066.71it/s]
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: answerdotai/ModernBERT-base
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1247 loss 0.3851 | elapsed 0:14 | training ETA 8:35
+epoch 1 step 200/1247 loss 0.2265 | elapsed 0:29 | training ETA 8:44
+epoch 1 step 300/1247 loss 0.0652 | elapsed 0:43 | training ETA 8:17
+epoch 1 step 400/1247 loss 0.0601 | elapsed 0:56 | training ETA 7:54
+epoch 1 step 500/1247 loss 0.0994 | elapsed 1:10 | training ETA 7:37
+epoch 1 step 600/1247 loss 0.0409 | elapsed 1:25 | training ETA 7:26
+epoch 1 step 700/1247 loss 0.0399 | elapsed 1:39 | training ETA 7:13
+epoch 1 step 800/1247 loss 0.0146 | elapsed 1:55 | training ETA 7:03
+epoch 1 step 900/1247 loss 0.0236 | elapsed 2:08 | training ETA 6:44
+epoch 1 step 1000/1247 loss 0.0162 | elapsed 2:22 | training ETA 6:30
+epoch 1 step 1100/1247 loss 0.0132 | elapsed 2:36 | training ETA 6:16
+epoch 1 step 1200/1247 loss 0.0306 | elapsed 2:49 | training ETA 5:59
+epoch 1 done: train loss 0.0816, val ROC-AUC 0.9999
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+epoch 2 step 100/1247 loss 0.0190 | elapsed 3:12 | training ETA 5:42
+epoch 2 step 200/1247 loss 0.0054 | elapsed 3:27 | training ETA 5:29
+epoch 2 step 300/1247 loss 0.0067 | elapsed 3:43 | training ETA 5:16
+epoch 2 step 400/1247 loss 0.0073 | elapsed 3:57 | training ETA 5:01
+epoch 2 step 500/1247 loss 0.0013 | elapsed 4:12 | training ETA 4:48
+epoch 2 step 600/1247 loss 0.0022 | elapsed 4:26 | training ETA 4:33
+epoch 2 step 700/1247 loss 0.0003 | elapsed 4:38 | training ETA 4:16
+epoch 2 step 800/1247 loss 0.0104 | elapsed 4:52 | training ETA 4:02
+epoch 2 step 900/1247 loss 0.0072 | elapsed 5:06 | training ETA 3:47
+epoch 2 step 1000/1247 loss 0.0123 | elapsed 5:21 | training ETA 3:33
+epoch 2 step 1100/1247 loss 0.0003 | elapsed 5:34 | training ETA 3:18
+epoch 2 step 1200/1247 loss 0.0000 | elapsed 5:46 | training ETA 3:03
+epoch 2 done: train loss 0.0058, val ROC-AUC 0.9998
+epoch 3 step 100/1247 loss 0.0000 | elapsed 6:10 | training ETA 2:43
+epoch 3 step 200/1247 loss 0.0000 | elapsed 6:24 | training ETA 2:29
+epoch 3 step 300/1247 loss 0.0005 | elapsed 6:36 | training ETA 2:14
+epoch 3 step 400/1247 loss 0.0000 | elapsed 6:52 | training ETA 2:00
+epoch 3 step 500/1247 loss 0.0000 | elapsed 7:06 | training ETA 1:46
+epoch 3 step 600/1247 loss 0.0078 | elapsed 7:19 | training ETA 1:31
+epoch 3 step 700/1247 loss 0.0004 | elapsed 7:34 | training ETA 1:17
+epoch 3 step 800/1247 loss 0.0001 | elapsed 7:46 | training ETA 1:03
+epoch 3 step 900/1247 loss 0.0044 | elapsed 8:00 | training ETA 0:49
+epoch 3 step 1000/1247 loss 0.0041 | elapsed 8:15 | training ETA 0:35
+epoch 3 step 1100/1247 loss 0.0000 | elapsed 8:28 | training ETA 0:20
+epoch 3 step 1200/1247 loss 0.0000 | elapsed 8:45 | training ETA 0:06
+epoch 3 done: train loss 0.0014, val ROC-AUC 1.0000
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]
+Loading weights:   0%|          | 0/138 [00:00<?, ?it/s]Loading weights: 100%|██████████| 138/138 [00:00<00:00, 19219.48it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.99it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.99it/s]
+Loading weights:   0%|          | 0/138 [00:00<?, ?it/s]Loading weights: 100%|██████████| 138/138 [00:00<00:00, 15671.58it/s]
+                       n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                
+val                 1454      0.998   0.998  0.998  0.001    1.000            1.000
+test_deepset         116      0.982   0.900  0.939  0.018    0.979            0.833
+test_promptshield  23516      0.589   0.916  0.717  0.244    0.931            0.565
+ood_spml            1997      1.000   0.146  0.254  0.000    0.964            0.695
+ood_lakera           223      1.000   0.767  0.868    NaN      NaN              NaN
+ood_bitext          1972        NaN     NaN    NaN  0.000      NaN              NaN
+scenarios             26      0.875   0.700  0.778  0.062    0.944            0.400
+{'gpu_latency_median_ms': 9.81, 'gpu_latency_p95_ms': 13.57, 'cpu_latency_median_ms': 78.33, 'cpu_latency_p95_ms': 294.47}
+/home/mot/fyp-guardrail/.venv/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 5036.26it/s]
+== protectai_deberta_v2 (protectai/deberta-v3-base-prompt-injection-v2)
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 19740.20it/s]
+                       n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                
+val                 1454      0.955   0.672  0.789  0.018    0.839            0.652
+test_deepset         116      1.000   0.367  0.537  0.000    0.902            0.533
+test_promptshield  23516      0.394   0.033  0.060  0.019    0.705            0.016
+ood_spml            1997      0.976   0.988  0.982  0.088    0.996            0.976
+ood_lakera           223      1.000   1.000  1.000    NaN      NaN              NaN
+ood_bitext          1972      0.000     NaN    NaN  0.039      NaN              NaN
+scenarios             26      0.750   0.600  0.667  0.125    0.912            0.300
+{'gpu_latency_median_ms': 10.84, 'gpu_latency_p95_ms': 14.61, 'cpu_latency_median_ms': 90.61, 'cpu_latency_p95_ms': 385.16}
+P2 pipeline finished
+exit=0

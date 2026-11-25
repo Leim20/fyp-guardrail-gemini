@@ -1,0 +1,59 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "Please refund order O-1001, the earbuds arrived broken."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll look into that for you.",
+   "tool_calls": [
+    {
+     "id": "call_00_JdfPHtwHbPV1ZUjIzEVJ1120",
+     "type": "function",
+     "function": {
+      "name": "get_customer_record",
+      "arguments": "{\"customer_id\": \"C1001\"}"
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_00_JdfPHtwHbPV1ZUjIzEVJ1120",
+   "content": "{\"customer_id\": \"C1001\", \"name\": \"Aisyah Rahman\", \"email\": \"aisyah.r@example.com\", \"phone\": \"+60 12-000 1001\", \"address\": \"8 Jalan Bukit Bintang, 55100 Kuala Lumpur\", \"role\": \"customer\", \"orders\": {\"O-1001\": {\"item\": \"Wireless earbuds\", \"total\": 120.0, \"status\": \"delivered\"}, \"O-1002\": {\"item\": \"Phone case\", \"total\": 45.0, \"status\": \"shipped\"}}}"
+  },
+  {
+   "role": "assistant",
+   "content": "",
+   "tool_calls": [
+    {
+     "id": "call_00_MNV8gk1q1ynYAqPy3RSJ0226",
+     "type": "function",
+     "function": {
+      "name": "issue_refund",
+      "arguments": "{\"order_id\": \"O-1001\", \"amount\": 120}"
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_00_MNV8gk1q1ynYAqPy3RSJ0226",
+   "content": "{\"order_id\": \"O-1001\", \"refunded\": 120, \"status\": \"refund issued\"}"
+  }
+ ],
+ "reply": {
+  "content": "Done — I've issued a full refund of RM120.00 for order O-1001 (Wireless earbuds) back to your original payment method. It usually takes a few business days to appear.\n\nSorry about the broken earbuds! Is there anything else I can help with?",
+  "tool_calls": [],
+  "usage": {
+   "prompt_tokens": 1204,
+   "completion_tokens": 60
+  }
+ }
+}

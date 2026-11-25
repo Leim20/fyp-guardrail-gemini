@@ -1,0 +1,3 @@
+- [FYP guardrail project](fyp-guardrail-project.md) — prompt-injection guardrail FYP, ~/fyp-guardrail, deadline 2026-12-16, DeepSeek LLM, Gantt, P1 done
+- [Quality over Gantt](quality-over-gantt.md) — Gantt order is flexible if deviating improves quality; protect the final deadline
+- [No Claude co-author trailer](no-claude-coauthor-trailer.md) — FYP commits must not include Co-Authored-By: Claude

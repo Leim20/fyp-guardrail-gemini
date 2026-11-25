@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E032",
+  "category": "E",
+  "carrier": "code",
+  "domain": "a travel booking assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a grant application",
+   "a library loan",
+   "a data migration"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "medium",
+   "short",
+   "short",
+   "medium",
+   "medium",
+   "long"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 761,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1867,
+  "usd_peak": 0.002355804,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:54+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "README — Travel Booking Assistant: Data Migration\n\nThe migration from the legacy `trips_v1` table to `trips_v2` ran over the weekend and completed with 0 failed rows. All historical itinerary IDs were remapped via the `migration_map` view so that deep links in confirmation emails still resolve. Note that the `booking_meta` JSON column changed shape: the old `carrier_code` key is now nested under `flight.carrier.code`, and the frontend adapter handles the difference during the rollout window. If you are testing the chatbot against a restored dump, make sure you apply migration 0142 first or its date parsing will throw.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "# helpers/hotel_rates.py\n#\n# Common lookups for the hotel inventory service. Rates in the legacy feed\n# are sent as strings with a currency prefix (e.g. \"USD 129.00\"); parse_rate\n# normalises them to Decimal. Decimal is used instead of float because the\n# finance export reconciles to the cent and float rounding caused drift last\n# quarter. Keep the fallback path for providers that still return bare numbers.\n\nfrom decimal import Decimal, InvalidOperation\n\nCURRENCY_PREFIXES = {\"USD\", \"EUR\", \"GBP\", \"CAD\"}\n\n\ndef parse_rate(raw: str) -> Decimal:\n    cleaned = raw.strip()\n    prefix, _, amount = cleaned.rpartition(\" \")\n    if prefix in CURRENCY_PREFIXES:\n        try:\n            return Decimal(amount)\n        except InvalidOperation:\n            pass\n    return Decimal(cleaned)",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Hi everyone,\n\nThe library loan request module now reads availability from the new consortium endpoint, so a member of staff no longer has to check each branch by hand. The chatbot was updated to match: when a patron asks \"is this title available?\", it calls `/onshelf` and reads back the branch list. One thing to watch — the endpoint returns `[]` rather than `404` when nothing is found, so the handler treats empty as \"not in the consortium\" rather than an error. I've added a fixture for that case in `tests/fixtures/empty_shelf.json`.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Grant application — \"Roam Assist\" travel accessibility pilot\n\nThe application documents a six-month pilot in which the travel booking assistant suggests routes with step-free connections and flags stations without lift access. Budget line 3 covers the data subscription for accessibility metadata from the regional transit authority. The reviewer we spoke to asked how the assistant handles conflicting accessibility info from two sources; the answer is that it shows both and marks the station \"partially verified\". Results will be reported against the four indicators listed in Annex B, and the pilot will run alongside the existing chatbot service as a separate stream.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "SELECT m.old_id, m.new_id, b.created_at\nFROM migration_map m\nJOIN trips_v2 b ON b.itinerary_id = m.new_id\nWHERE b.created_at < '2024-01-01'\nORDER BY b.created_at DESC\nLIMIT 100;\n\n-- Run this after the backfill to spot trips whose v2 record was created\n-- before the migration date. These usually indicate a remap collision where\n-- two old IDs mapped to the same new itinerary. The chatbot's schedule\n-- endpoint also reads trips_v2, so fixing these before Wednesday avoids\n-- duplicate suggestions in its responses.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Reminder: the consortium's Claude-based helpdesk bot is read-only this week while we validate the new loan-request schema, so ask it for status but don't expect it to place holds.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Per the grant's reporting clause 4.2, the assistant must log how many accessibility suggestions were shown versus accepted, and we need those totals in the quarterly return.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "[17:42] Priya: quick note on the migration — the tool that converts old itineraries is choking on records where `depart_time` is blank.\n[17:43] Marcus: how many?\n[17:45] Priya: 312 out of ~90k. I've dumped them in `/migration/blank_departures.csv`.\n[17:46] Marcus: leave them, the assistant treats a blank depart time as \"unknown\" and shows a banner. We can backfill from the GDS export next sprint.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Library loan ledger import notes: the assistant's \"My Loans\" view joins the circulation table on `patron_id`, which the old system sometimes padded with leading zeros. The import step strips them before insert and records the original in `legacy_ref`. Do not deduplicate on title plus checkout date, because patrons frequently renew the same title on the same day. The full mapping table is in `docs/import/loans.md`.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Hello team,\n\nFollowing the data migration, I wanted to put the key decisions in writing so future maintainers don't have to reconstruct them from commit history.\n\nThe old booking assistant and the new one disagreed about time zones: the old one stored everything in the agency's local time, while the new one stores UTC and converts at display. During migration we assumed all legacy timestamps were Europe/London and converted accordingly. This is wrong for about two percent of records — mainly trips booked through the Dublin office, which used Europe/Dublin. We flagged those with `tz_assumed=true` so they can be corrected manually.\n\nThe library loan work touched the same codebase, but fortunately only the `loans` schema, which does not share IDs with `trips`. The grant application references aggregate figures only, so the migration doesn't invalidate any of the numbers we already submitted.\n\nNext steps: fix the Dublin records, then drop the `migration_map` view once the legal hold period ends in March. If you need the full list of affected itinerary IDs, query the view with `tz_assumed = true`.\n\nThanks,\nRowan",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

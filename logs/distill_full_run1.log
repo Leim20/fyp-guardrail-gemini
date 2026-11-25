@@ -1,0 +1,476 @@
+300 jobs, 0 cached, 300 to run
+[1/300] full-A004: 10 items, 1752 tokens, stop
+[2/300] full-A005: 10 items, 2210 tokens, stop
+[3/300] full-A002: 10 items, 2048 tokens, stop
+[4/300] full-A006: 10 items, 2189 tokens, stop
+[5/300] full-A000: 10 items, 2233 tokens, stop
+[6/300] full-A007: 10 items, 2883 tokens, stop
+[7/300] full-A001: 10 items, 2708 tokens, stop
+[8/300] full-A003: 10 items, 3002 tokens, stop
+[9/300] full-A009: 10 items, 1713 tokens, stop
+[10/300] full-A008: 10 items, 1965 tokens, stop
+[11/300] full-A012: 10 items, 1770 tokens, stop
+[12/300] full-A010: 10 items, 2285 tokens, stop
+[13/300] full-A011: 10 items, 2537 tokens, stop
+[14/300] full-A016: 10 items, 1707 tokens, stop
+[15/300] full-A013: 10 items, 2470 tokens, stop
+[16/300] full-A014: 10 items, 2468 tokens, stop
+[17/300] full-A015: 10 items, 2305 tokens, stop
+[18/300] full-A018: 10 items, 2038 tokens, stop
+[19/300] full-A017: 10 items, 2491 tokens, stop
+[20/300] full-A019: 10 items, 1957 tokens, stop
+[21/300] full-A021: 10 items, 2002 tokens, stop
+[22/300] full-A023: 10 items, 1676 tokens, stop
+[23/300] full-A022: 10 items, 1817 tokens, stop
+[24/300] full-A020: 10 items, 2288 tokens, stop
+[25/300] full-A025: 10 items, 2072 tokens, stop
+[26/300] full-A024: 10 items, 2055 tokens, stop
+[27/300] full-A027: 10 items, 2150 tokens, stop
+[28/300] full-A026: 10 items, 2851 tokens, stop
+[29/300] full-A030: 10 items, 1781 tokens, stop
+[30/300] full-A031: 10 items, 1696 tokens, stop
+[31/300] full-A028: 10 items, 2182 tokens, stop
+[32/300] full-A035: 10 items, 1561 tokens, stop
+[33/300] full-A029: 10 items, 2829 tokens, stop
+[34/300] full-A034: 10 items, 2040 tokens, stop
+[35/300] full-A037: 10 items, 1621 tokens, stop
+[36/300] full-A032: 10 items, 2557 tokens, stop
+[37/300] full-A033: FAILED JSONDecodeError: Invalid \escape: line 1 column 8794 (char 8793)
+[38/300] full-A038: 10 items, 2340 tokens, stop
+[39/300] full-A036: 10 items, 2290 tokens, stop
+[40/300] full-A041: 10 items, 1805 tokens, stop
+[41/300] full-A040: 10 items, 1954 tokens, stop
+[42/300] full-A039: 10 items, 2222 tokens, stop
+[43/300] full-A044: 10 items, 2344 tokens, stop
+[44/300] full-A046: 10 items, 1418 tokens, stop
+[45/300] full-A045: 10 items, 2084 tokens, stop
+[46/300] full-A042: 10 items, 2566 tokens, stop
+[47/300] full-A043: 10 items, 2893 tokens, stop
+[48/300] full-A048: 10 items, 2134 tokens, stop
+[49/300] full-A047: 10 items, 2419 tokens, stop
+[50/300] full-A050: 10 items, 1904 tokens, stop
+[51/300] full-A049: 10 items, 2661 tokens, stop
+[52/300] full-A051: 10 items, 2069 tokens, stop
+[53/300] full-A053: 11 items, 2249 tokens, stop
+[54/300] full-A052: 10 items, 2928 tokens, stop
+[55/300] full-A054: 10 items, 2383 tokens, stop
+[56/300] full-A056: 10 items, 1940 tokens, stop
+[57/300] full-A055: 10 items, 2551 tokens, stop
+[58/300] full-A058: 9 items, 1607 tokens, stop
+[59/300] full-A057: 10 items, 2128 tokens, stop
+[60/300] full-A059: 10 items, 2534 tokens, stop
+[61/300] full-A060: 10 items, 2314 tokens, stop
+[62/300] full-A063: 10 items, 2057 tokens, stop
+[63/300] full-A061: 10 items, 2290 tokens, stop
+[64/300] full-A064: 10 items, 2203 tokens, stop
+[65/300] full-A062: 10 items, 2942 tokens, stop
+[66/300] full-A066: 10 items, 2559 tokens, stop
+[67/300] full-A065: 10 items, 2953 tokens, stop
+[68/300] full-A067: 10 items, 2459 tokens, stop
+[69/300] full-A069: 10 items, 2096 tokens, stop
+[70/300] full-A070: 10 items, 1981 tokens, stop
+[71/300] full-A068: 10 items, 2319 tokens, stop
+[72/300] full-A071: 10 items, 1994 tokens, stop
+[73/300] full-A072: 10 items, 2270 tokens, stop
+[74/300] full-A077: 10 items, 2054 tokens, stop
+[75/300] full-A075: 10 items, 2329 tokens, stop
+[76/300] full-A079: 10 items, 1858 tokens, stop
+[77/300] full-A076: 10 items, 2369 tokens, stop
+[78/300] full-A073: 10 items, 3312 tokens, stop
+[79/300] full-A078: 10 items, 2337 tokens, stop
+[80/300] full-A074: 10 items, 3232 tokens, stop
+[81/300] full-A081: 10 items, 1637 tokens, stop
+[82/300] full-A082: 10 items, 1923 tokens, stop
+[83/300] full-A080: 10 items, 2503 tokens, stop
+[84/300] full-A085: 10 items, 1749 tokens, stop
+[85/300] full-A083: 10 items, 2369 tokens, stop
+[86/300] full-A084: 10 items, 2159 tokens, stop
+[87/300] full-A086: 9 items, 1975 tokens, stop
+[88/300] full-B000: 10 items, 1471 tokens, stop
+[89/300] full-A088: 10 items, 2192 tokens, stop
+[90/300] full-A089: 10 items, 2145 tokens, stop
+[91/300] full-B001: 10 items, 1700 tokens, stop
+[92/300] full-A087: 10 items, 2970 tokens, stop
+[93/300] full-B003: 10 items, 1692 tokens, stop
+[94/300] full-B004: 10 items, 1398 tokens, stop
+[95/300] full-B002: 10 items, 1968 tokens, stop
+[96/300] full-B006: 10 items, 1544 tokens, stop
+[97/300] full-B005: 10 items, 1718 tokens, stop
+[98/300] full-B007: 10 items, 1368 tokens, stop
+[99/300] full-B009: 10 items, 1642 tokens, stop
+[100/300] full-B010: 10 items, 1618 tokens, stop
+[101/300] full-B008: 10 items, 1879 tokens, stop
+[102/300] full-B012: 10 items, 1489 tokens, stop
+[103/300] full-B013: 10 items, 1652 tokens, stop
+[104/300] full-B011: 10 items, 1872 tokens, stop
+[105/300] full-B014: 10 items, 1702 tokens, stop
+[106/300] full-B015: 10 items, 1482 tokens, stop
+[107/300] full-B019: 10 items, 1590 tokens, stop
+[108/300] full-C000: 10 items, 1489 tokens, stop
+[109/300] full-B016: 10 items, 2034 tokens, stop
+[110/300] full-B017: 10 items, 2199 tokens, stop
+[111/300] full-C001: 10 items, 1659 tokens, stop
+[112/300] full-B018: 10 items, 2131 tokens, stop
+[113/300] full-C003: 10 items, 1397 tokens, stop
+[114/300] full-C002: 10 items, 1708 tokens, stop
+[115/300] full-C004: 10 items, 1539 tokens, stop
+[116/300] full-C008: 10 items, 1423 tokens, stop
+[117/300] full-C007: 10 items, 1637 tokens, stop
+[118/300] full-C009: 10 items, 1405 tokens, stop
+[119/300] full-C011: 11 items, 1085 tokens, stop
+[120/300] full-C005: 10 items, 1924 tokens, stop
+[121/300] full-C006: 10 items, 1909 tokens, stop
+[122/300] full-C010: 10 items, 1649 tokens, stop
+[123/300] full-C014: 10 items, 1375 tokens, stop
+[124/300] full-C012: 10 items, 1482 tokens, stop
+[125/300] full-C013: 10 items, 1507 tokens, stop
+[126/300] full-C018: 10 items, 1470 tokens, stop
+[127/300] full-C019: 10 items, 1179 tokens, stop
+[128/300] full-C015: 10 items, 1773 tokens, stop
+[129/300] full-C017: 10 items, 1747 tokens, stop
+[130/300] full-C016: 10 items, 2262 tokens, stop
+[131/300] full-C025: 10 items, 1319 tokens, stop
+[132/300] full-C020: 10 items, 1749 tokens, stop
+[133/300] full-C024: 10 items, 1699 tokens, stop
+[134/300] full-C023: 10 items, 1597 tokens, stop
+[135/300] full-C021: 10 items, 1968 tokens, stop
+[136/300] full-C022: 10 items, 2020 tokens, stop
+[137/300] full-C027: 10 items, 1994 tokens, stop
+[138/300] full-C026: 10 items, 2318 tokens, stop
+[139/300] full-C029: 10 items, 1599 tokens, stop
+[140/300] full-C028: 10 items, 1801 tokens, stop
+[141/300] full-C030: 10 items, 1644 tokens, stop
+[142/300] full-C032: 10 items, 1552 tokens, stop
+[143/300] full-C031: 10 items, 1793 tokens, stop
+[144/300] full-C033: 10 items, 1933 tokens, stop
+[145/300] full-C034: 10 items, 1877 tokens, stop
+[146/300] full-C036: 10 items, 1460 tokens, stop
+[147/300] full-C037: 10 items, 1555 tokens, stop
+[148/300] full-C035: 10 items, 2147 tokens, stop
+[149/300] full-C039: 10 items, 1603 tokens, stop
+[150/300] full-C040: 10 items, 1365 tokens, stop
+[151/300] full-C038: 10 items, 1805 tokens, stop
+[152/300] full-C041: 10 items, 1348 tokens, stop
+[153/300] full-C043: 10 items, 1531 tokens, stop
+[154/300] full-C045: 10 items, 1450 tokens, stop
+[155/300] full-C042: 11 items, 1933 tokens, stop
+[156/300] full-C046: 10 items, 1584 tokens, stop
+[157/300] full-C044: 10 items, 1962 tokens, stop
+[158/300] full-C049: 10 items, 1521 tokens, stop
+[159/300] full-C047: 10 items, 1938 tokens, stop
+[160/300] full-C048: 10 items, 1917 tokens, stop
+[161/300] full-C050: 10 items, 1448 tokens, stop
+[162/300] full-C051: 10 items, 1231 tokens, stop
+[163/300] full-C052: 10 items, 1496 tokens, stop
+[164/300] full-C053: 10 items, 1307 tokens, stop
+[165/300] full-C056: 10 items, 1346 tokens, stop
+[166/300] full-C058: 10 items, 1048 tokens, stop
+[167/300] full-C057: 10 items, 1560 tokens, stop
+[168/300] full-C054: 10 items, 1958 tokens, stop
+[169/300] full-C055: 10 items, 1884 tokens, stop
+[170/300] full-C059: 10 items, 1639 tokens, stop
+[171/300] full-C062: 10 items, 1377 tokens, stop
+[172/300] full-C060: 10 items, 1746 tokens, stop
+[173/300] full-C061: 10 items, 1919 tokens, stop
+[174/300] full-C063: 10 items, 1546 tokens, stop
+[175/300] full-C064: 10 items, 1660 tokens, stop
+[176/300] full-C065: 10 items, 1803 tokens, stop
+[177/300] full-C067: 10 items, 1416 tokens, stop
+[178/300] full-C068: 10 items, 1315 tokens, stop
+[179/300] full-C066: FAILED JSONDecodeError: Expecting ',' delimiter: line 1 column 5852 (char 5851)
+[180/300] full-D000: 10 items, 1432 tokens, stop
+[181/300] full-D001: 10 items, 1601 tokens, stop
+[182/300] full-C069: 10 items, 1667 tokens, stop
+[183/300] full-D002: 10 items, 1382 tokens, stop
+[184/300] full-D003: 10 items, 1756 tokens, stop
+[185/300] full-D004: 10 items, 1826 tokens, stop
+[186/300] full-D008: 10 items, 1316 tokens, stop
+[187/300] full-D006: 10 items, 1768 tokens, stop
+[188/300] full-D005: 10 items, 1898 tokens, stop
+[189/300] full-D007: 10 items, 1749 tokens, stop
+[190/300] full-D009: 10 items, 1483 tokens, stop
+[191/300] full-D010: 10 items, 1622 tokens, stop
+[192/300] full-D016: 10 items, 1209 tokens, stop
+[193/300] full-D012: 10 items, 1352 tokens, stop
+[194/300] full-D013: 10 items, 1317 tokens, stop
+[195/300] full-D014: 10 items, 1237 tokens, stop
+[196/300] full-D011: 10 items, 1558 tokens, stop
+[197/300] full-D015: 10 items, 1307 tokens, stop
+[198/300] full-D018: 10 items, 1455 tokens, stop
+[199/300] full-D017: 10 items, 2351 tokens, stop
+[200/300] full-D019: 10 items, 1708 tokens, stop
+[201/300] full-D022: 10 items, 1605 tokens, stop
+[202/300] full-D021: 10 items, 1675 tokens, stop
+[203/300] full-D023: 10 items, 1844 tokens, stop
+[204/300] full-D020: 10 items, 2012 tokens, stop
+[205/300] full-D024: 10 items, 2145 tokens, stop
+[206/300] full-D025: 10 items, 1706 tokens, stop
+[207/300] full-D029: 10 items, 1111 tokens, stop
+[208/300] full-D030: 10 items, 1275 tokens, stop
+[209/300] full-D027: 10 items, 1579 tokens, stop
+[210/300] full-D026: 10 items, 1825 tokens, stop
+[211/300] full-D031: 10 items, 1382 tokens, stop
+[212/300] full-D028: 10 items, 1882 tokens, stop
+[213/300] full-D032: 10 items, 1543 tokens, stop
+[214/300] full-D035: 10 items, 1370 tokens, stop
+[215/300] full-D034: 10 items, 1694 tokens, stop
+[216/300] full-D038: 10 items, 1146 tokens, stop
+[217/300] full-D037: 10 items, 1521 tokens, stop
+[218/300] full-D033: 10 items, 2102 tokens, stop
+[219/300] full-D036: 10 items, 1634 tokens, stop
+[220/300] full-D039: 10 items, 1654 tokens, stop
+[221/300] full-D040: 10 items, 1614 tokens, stop
+[222/300] full-D041: 10 items, 1353 tokens, stop
+[223/300] full-D044: 10 items, 1252 tokens, stop
+[224/300] full-D042: 10 items, 1798 tokens, stop
+[225/300] full-D045: 10 items, 1454 tokens, stop
+[226/300] full-D043: 10 items, 1898 tokens, stop
+[227/300] full-D046: 10 items, 1646 tokens, stop
+[228/300] full-D047: 10 items, 1417 tokens, stop
+[229/300] full-D049: 10 items, 1063 tokens, stop
+[230/300] full-D048: 10 items, 1376 tokens, stop
+[231/300] full-D052: 10 items, 1420 tokens, stop
+[232/300] full-D053: 10 items, 1385 tokens, stop
+[233/300] full-D054: 10 items, 1224 tokens, stop
+[234/300] full-D055: 10 items, 1400 tokens, stop
+[235/300] full-D050: 10 items, 2030 tokens, stop
+[236/300] full-D051: 10 items, 1964 tokens, stop
+[237/300] full-D056: 10 items, 1586 tokens, stop
+[238/300] full-D058: 10 items, 1518 tokens, stop
+[239/300] full-D057: 10 items, 1994 tokens, stop
+[240/300] full-D059: 10 items, 1342 tokens, stop
+[241/300] full-D060: 10 items, 1804 tokens, stop
+[242/300] full-D062: 10 items, 1335 tokens, stop
+[243/300] full-D061: 10 items, 1671 tokens, stop
+[244/300] full-D064: 10 items, 1663 tokens, stop
+[245/300] full-D063: 10 items, 1628 tokens, stop
+[246/300] full-D066: 10 items, 1691 tokens, stop
+[247/300] full-D065: 10 items, 2211 tokens, stop
+[248/300] full-D068: 10 items, 1518 tokens, stop
+[249/300] full-E000: 10 items, 1103 tokens, stop
+[250/300] full-D067: 10 items, 2050 tokens, stop
+[251/300] full-E001: 10 items, 1604 tokens, stop
+[252/300] full-E002: 10 items, 1628 tokens, stop
+[253/300] full-D069: 10 items, 2375 tokens, stop
+[254/300] full-E005: 10 items, 1410 tokens, stop
+[255/300] full-E003: 10 items, 1743 tokens, stop
+[256/300] full-E009: 10 items, 1232 tokens, stop
+[257/300] full-E006: 10 items, 2073 tokens, stop
+[258/300] full-E007: 10 items, 2250 tokens, stop
+[259/300] full-E011: 10 items, 1124 tokens, stop
+[260/300] full-E008: 10 items, 1735 tokens, stop
+[261/300] full-E010: 10 items, 1737 tokens, stop
+[262/300] full-E004: 10 items, 2792 tokens, stop
+[263/300] full-E012: 10 items, 2002 tokens, stop
+[264/300] full-E015: 10 items, 1622 tokens, stop
+[265/300] full-E014: 10 items, 1618 tokens, stop
+[266/300] full-E016: 10 items, 1482 tokens, stop
+[267/300] full-E019: 10 items, 1298 tokens, stop
+[268/300] full-E013: 10 items, 2642 tokens, stop
+[269/300] full-E018: 10 items, 1461 tokens, stop
+[270/300] full-E017: 10 items, 2041 tokens, stop
+[271/300] full-E020: 10 items, 1482 tokens, stop
+[272/300] full-E022: 10 items, 1400 tokens, stop
+[273/300] full-E021: 10 items, 1624 tokens, stop
+[274/300] full-E024: 10 items, 1230 tokens, stop
+[275/300] full-E023: 10 items, 1540 tokens, stop
+[276/300] full-E025: 10 items, 1612 tokens, stop
+[277/300] full-E027: 10 items, 1413 tokens, stop
+[278/300] full-E026: 10 items, 2070 tokens, stop
+[279/300] full-E028: 10 items, 1583 tokens, stop
+[280/300] full-E029: 10 items, 1579 tokens, stop
+[281/300] full-E030: 10 items, 1624 tokens, stop
+[282/300] full-E031: 10 items, 1409 tokens, stop
+[283/300] full-E033: 10 items, 1279 tokens, stop
+[284/300] full-E034: 10 items, 1304 tokens, stop
+[285/300] full-E032: 10 items, 1867 tokens, stop
+[286/300] full-E040: 10 items, 1396 tokens, stop
+[287/300] full-E035: 10 items, 1356 tokens, stop
+[288/300] full-E039: 10 items, 1565 tokens, stop
+[289/300] full-E041: 10 items, 1256 tokens, stop
+[290/300] full-E038: 10 items, 1622 tokens, stop
+[291/300] full-E037: 10 items, 1775 tokens, stop
+[292/300] full-E042: 10 items, 1268 tokens, stop
+[293/300] full-E036: 10 items, 1955 tokens, stop
+[294/300] full-E043: 10 items, 1685 tokens, stop
+[295/300] full-E048: 10 items, 1416 tokens, stop
+[296/300] full-E049: 10 items, 1479 tokens, stop
+[297/300] full-E047: 10 items, 1700 tokens, stop
+[298/300] full-E044: 10 items, 1968 tokens, stop
+[299/300] full-E046: 10 items, 1837 tokens, stop
+[300/300] full-E045: 10 items, 2009 tokens, stop
+
+298/300 jobs done, 2981 items, cost US$0.686 at peak rates (half off-peak); failed: ['full-A033', 'full-C066']
+{
+  "stage": "full",
+  "generated": 2981,
+  "kept": 2932,
+  "dropped": {
+    "evidence_not_in_text": 33,
+    "duplicate_exact": 5,
+    "label_contradicts_category": 2,
+    "schema": 7,
+    "forbidden_string": 2
+  },
+  "kept_by_category": {
+    "A": 857,
+    "B": 196,
+    "C": 681,
+    "D": 700,
+    "E": 498
+  },
+  "kept_by_label": {
+    "0.0": 1529,
+    "1.0": 1403
+  },
+  "complete_pairs": 350,
+  "median_chars_by_label": {
+    "0": 411,
+    "1": 485
+  }
+}
+2932 items, 0 cached, 2932 to verify
+[25/2932] verified
+[50/2932] verified
+[75/2932] verified
+[100/2932] verified
+[125/2932] verified
+[150/2932] verified
+[175/2932] verified
+[200/2932] verified
+[225/2932] verified
+[250/2932] verified
+[275/2932] verified
+[300/2932] verified
+[325/2932] verified
+[350/2932] verified
+[375/2932] verified
+[400/2932] verified
+[425/2932] verified
+[450/2932] verified
+[475/2932] verified
+[500/2932] verified
+[525/2932] verified
+[550/2932] verified
+[575/2932] verified
+[600/2932] verified
+[625/2932] verified
+[650/2932] verified
+[675/2932] verified
+[700/2932] verified
+[725/2932] verified
+[750/2932] verified
+[775/2932] verified
+[800/2932] verified
+[825/2932] verified
+[850/2932] verified
+[875/2932] verified
+[900/2932] verified
+[925/2932] verified
+[950/2932] verified
+[975/2932] verified
+[1000/2932] verified
+[1025/2932] verified
+[1050/2932] verified
+[1075/2932] verified
+[1100/2932] verified
+[1125/2932] verified
+[1150/2932] verified
+[1175/2932] verified
+[1200/2932] verified
+[1225/2932] verified
+[1250/2932] verified
+[1275/2932] verified
+[1300/2932] verified
+[1325/2932] verified
+[1350/2932] verified
+[1375/2932] verified
+[1400/2932] verified
+[1425/2932] verified
+[1450/2932] verified
+[1475/2932] verified
+[1500/2932] verified
+[1525/2932] verified
+[1550/2932] verified
+[1575/2932] verified
+[1600/2932] verified
+[1625/2932] verified
+[1650/2932] verified
+[1675/2932] verified
+[1700/2932] verified
+[1725/2932] verified
+[1750/2932] verified
+[1775/2932] verified
+[1800/2932] verified
+[1825/2932] verified
+[1850/2932] verified
+[1875/2932] verified
+[1900/2932] verified
+[1925/2932] verified
+[1950/2932] verified
+[1975/2932] verified
+[2000/2932] verified
+[2025/2932] verified
+[2050/2932] verified
+[2075/2932] verified
+[2100/2932] verified
+[2125/2932] verified
+[2150/2932] verified
+[2175/2932] verified
+[2200/2932] verified
+[2225/2932] verified
+[2250/2932] verified
+[2275/2932] verified
+[2300/2932] verified
+[2325/2932] verified
+[2350/2932] verified
+[2375/2932] verified
+[2400/2932] verified
+[2425/2932] verified
+[2450/2932] verified
+[2475/2932] verified
+[2500/2932] verified
+[2525/2932] verified
+[2550/2932] verified
+[2575/2932] verified
+[2600/2932] verified
+[2625/2932] verified
+[2650/2932] verified
+[2675/2932] verified
+[2700/2932] verified
+[2725/2932] verified
+[2750/2932] verified
+[2775/2932] verified
+[2800/2932] verified
+[2825/2932] verified
+[2850/2932] verified
+[2875/2932] verified
+[2900/2932] verified
+[2925/2932] verified
+[2932/2932] verified
+{
+  "stage": "full",
+  "verified": 2932,
+  "kept": 2884,
+  "disputed": 48,
+  "paths": {
+    "verifier": 2744,
+    "escalated": 140,
+    "disputed": 48
+  },
+  "escalated_by_category": {
+    "A": 113,
+    "B": 1,
+    "D": 74
+  },
+  "disputed_by_category": {
+    "A": 32,
+    "D": 16
+  },
+  "kept_by_label": {
+    "0": 1529,
+    "1": 1355
+  },
+  "complete_pairs": 334,
+  "usd_peak": 1.906
+}

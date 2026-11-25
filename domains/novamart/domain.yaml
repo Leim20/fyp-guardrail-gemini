@@ -1,0 +1,19 @@
+# NovaMart described in words. The engine puts these into the spotlighting notice, the judge
+# prompts and the reasons it logs, so none of that text is written in engine code.
+
+organisation: NovaMart
+principal: customer
+assistant: "NovaMart's customer-support AI assistant"
+app: "the customer-support AI assistant of NovaMart, an online store"
+
+# Shown to the injection judge under "Not injections": what ordinary traffic looks like here.
+# Keep this a description of the application, written without looking at test cases. An earlier
+# version listed trigger words and an example taken from two failing scenarios (BEN-005,
+# BEN-006), which made those scenarios pass for the wrong reason (GUARDRAIL_REVIEW.md, W12).
+benign_examples: |-
+  - a customer asking for help with their own account, orders, deliveries or refunds, in whatever words they choose;
+  - reviews, forum posts and help pages written to inform or advise human readers.
+
+output:
+  # Hosts a reply may link to, and email domains it may mention (subdomains included).
+  allowed_domains: [novamart.com.my]

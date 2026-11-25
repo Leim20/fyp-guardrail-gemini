@@ -1,0 +1,228 @@
+# Tool policy matrix (P1 deliverable; FR03, FR04, FR05).
+#
+# Read by the mock agent (P3), which passes each `parameters` block to the LLM as a
+# function definition (JSON Schema), and by the action guard (P4), which enforces `policy`
+# before any tool runs.
+#
+# Policy evaluation order for a proposed tool call:
+#   1. global_deny rules  -> BLOCK
+#   2. the tool's deny rules -> BLOCK      (absolute: no classifier score can override them)
+#   3. otherwise the tool's `default` verdict (ALLOW or ASK_CONFIRM)
+# A rule's `id` is NovaMart's own name for it. Its `check` is one of the engine's generic
+# primitives (guardrail/policy.py) and the remaining keys are that primitive's parameters, so
+# this file, not engine code, says what an order, a registered address or a forbidden field is.
+#
+# effect: read | write | external      risk: low | medium | high
+# output_trust: trust class of the tool's result (see trust.yaml), or per_document when
+#               each returned item carries its own trust class.
+
+global_deny:
+  - id: unknown_tool
+    description: The proposed tool is not in this allow-list.
+    check: known_tool
+  - id: invalid_arguments
+    description: Arguments fail the tool's JSON Schema (missing, extra or wrongly typed fields).
+    check: schema
+
+tools:
+  search_kb:
+    description: Search the NovaMart help centre, community forum and product reviews.
+    effect: read
+    risk: low
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: What to search for.
+          maxLength: 200
+      required: [query]
+      additionalProperties: false
+    output_trust: per_document
+    policy:
+      deny: []
+      default: ALLOW
+    rationale: >
+      The call itself is read-only and touches no customer data, so it is allowed. The risk is
+      in what it returns: forum posts and reviews are written by third parties, so every returned
+      document is scanned by the input guard before it enters the agent context. This is the
+      indirect prompt-injection vector of the threat model.
+
+  get_customer_record:
+    description: Look up a customer's profile and orders.
+    effect: read
+    risk: medium
+    parameters:
+      type: object
+      properties:
+        customer_id:
+          type: string
+          description: Customer id, e.g. C1001.
+          pattern: "^C[0-9]{4}$"
+      required: [customer_id]
+      additionalProperties: false
+    output_trust: internal_data
+    policy:
+      deny:
+        - id: not_session_customer
+          description: customer_id is not the logged-in customer.
+          check: equals_principal
+          arg: customer_id
+      default: ALLOW
+    rationale: >
+      Returns personal data (name, email, phone, address). A customer may read their own record
+      without friction, so the default is ALLOW, but reading anyone else's record is cross-customer
+      data access and is always blocked. The check uses the authenticated session, never anything
+      the LLM or retrieved content claims about identity.
+
+  create_ticket:
+    description: Open a support ticket for the human support team.
+    effect: write
+    risk: low
+    parameters:
+      type: object
+      properties:
+        subject:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+          maxLength: 2000
+        priority:
+          type: string
+          enum: [low, normal, high]
+      required: [subject, description, priority]
+      additionalProperties: false
+    content_args: [subject, description]
+    output_trust: internal_data
+    policy:
+      deny: []
+      default: ALLOW
+    rationale: >
+      Writes only to an internal queue that a human reviews, and moves no money or data out of
+      the system, so it is allowed. Second-order injection through ticket text aimed at human
+      staff is out of scope (threat model section 7).
+
+  issue_refund:
+    description: Refund all or part of an order to the original payment method.
+    effect: write
+    risk: high
+    parameters:
+      type: object
+      properties:
+        order_id:
+          type: string
+          pattern: "^O-[0-9]{4}$"
+        amount:
+          type: number
+          exclusiveMinimum: 0
+          description: Amount in RM.
+      required: [order_id, amount]
+      additionalProperties: false
+    output_trust: internal_data
+    policy:
+      deny:
+        - id: order_not_owned
+          description: The order does not exist or does not belong to the logged-in customer.
+          check: owned_by_principal
+          arg: order_id
+          resource: order
+        - id: amount_exceeds_order_total
+          description: The refund, added to refunds already issued for the order in this session, is larger than what was paid.
+          check: max_from_resource
+          cumulative: true
+          arg: amount
+          resource: order
+          resource_arg: order_id
+          attr: total
+          message: "RM{value} would bring refunds for this order above its total of RM{limit}"
+        - id: tainted_argument
+          description: The order number was copied from external_untrusted content.
+          check: not_tainted
+          args: [order_id]   # the amount is bounded by amount_exceeds_order_total instead
+      default: ASK_CONFIRM
+    rationale: >
+      Moves money, so it is the main target of refund-fraud injections. A legitimate refund on the
+      customer's own order is a normal support task, so it is not blocked but needs explicit
+      customer confirmation (FR05; in survey item D2, 53.1% chose confirmation as the default
+      response to a risky tool action). Refunds
+      to someone else's order, above the order total, or driven by values taken from untrusted
+      content are prohibited outright (FR05).
+
+  update_account:
+    description: Change a field on the logged-in customer's account.
+    effect: write
+    risk: high
+    parameters:
+      type: object
+      properties:
+        field:
+          type: string
+          enum: [address, phone, email, password, role]
+        value:
+          type: string
+          maxLength: 200
+      required: [field, value]
+      additionalProperties: false
+    output_trust: internal_data
+    policy:
+      deny:
+        - id: forbidden_field
+          description: email, password and role can only be changed in account settings with verification.
+          check: forbidden_values
+          arg: field
+          values: [email, password, role]
+          message: "{value} needs the verified account-settings flow"
+        - id: tainted_argument
+          description: The new value was copied from external_untrusted content.
+          check: not_tainted
+          args: [value]
+      default: ASK_CONFIRM
+    rationale: >
+      Changing email, password or role hands over the account, so those fields are blocked and
+      left to the verified account-settings flow (official_account_help.md says the same).
+      Address and phone are routine changes but still alter where goods and verification codes
+      go, so they need confirmation. The enum deliberately includes the forbidden fields so that
+      an attempt is visible and logged as a policy BLOCK rather than silently rejected as a
+      schema error.
+
+  send_email:
+    description: Send an email to the customer.
+    effect: external
+    risk: high
+    parameters:
+      type: object
+      properties:
+        to:
+          type: string
+          format: email
+        subject:
+          type: string
+          maxLength: 200
+        body:
+          type: string
+          maxLength: 5000
+      required: [to, subject, body]
+      additionalProperties: false
+    content_args: [subject, body]
+    output_trust: internal_data
+    policy:
+      deny:
+        - id: recipient_not_registered
+          description: The recipient is not the logged-in customer's registered email address.
+          check: equals_principal_attr
+          arg: to
+          attr: email
+          message: "{value} is not the registered address"
+        - id: unapproved_content
+          description: The subject or body contains a link, a contact or another customer's details that a chat reply could not contain either.
+          check: allowed_content
+      default: ALLOW
+    rationale: >
+      The only channel that can move data outside NovaMart, so it is the data-exfiltration sink.
+      Emailing the customer at their registered address is normal and allowed; any other recipient
+      is blocked regardless of how convincing the request sounds, because the recipient check does
+      not depend on understanding the text. The right recipient is not enough: an email to the
+      customer's own address can still carry a link or a contact that a forum post planted, and
+      an email from NovaMart is trusted more than a chat reply. So the subject and body pass the
+      same checks as a reply (unapproved_content).

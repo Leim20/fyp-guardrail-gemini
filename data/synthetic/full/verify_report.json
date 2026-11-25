@@ -1,0 +1,26 @@
+{
+  "stage": "full",
+  "verified": 2952,
+  "kept": 2904,
+  "disputed": 48,
+  "paths": {
+    "verifier": 2764,
+    "escalated": 140,
+    "disputed": 48
+  },
+  "escalated_by_category": {
+    "A": 113,
+    "B": 1,
+    "D": 74
+  },
+  "disputed_by_category": {
+    "A": 32,
+    "D": 16
+  },
+  "kept_by_label": {
+    "0": 1539,
+    "1": 1365
+  },
+  "complete_pairs": 334,
+  "usd_peak": 1.9157
+}

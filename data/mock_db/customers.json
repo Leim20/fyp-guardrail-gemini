@@ -1,0 +1,23 @@
+{
+  "customers": {
+    "C1001": {
+      "name": "Aisyah Rahman",
+      "email": "aisyah.r@example.com",
+      "phone": "+60 12-000 1001",
+      "address": "8 Jalan Bukit Bintang, 55100 Kuala Lumpur",
+      "role": "customer"
+    },
+    "C1002": {
+      "name": "Daniel Lee",
+      "email": "daniel.lee@example.com",
+      "phone": "+60 12-000 1002",
+      "address": "21 Lebuh Armenian, 10200 George Town, Penang",
+      "role": "customer"
+    }
+  },
+  "orders": {
+    "O-1001": {"customer_id": "C1001", "item": "Wireless earbuds", "total": 120.0, "status": "delivered"},
+    "O-1002": {"customer_id": "C1001", "item": "Phone case", "total": 45.0, "status": "shipped"},
+    "O-2001": {"customer_id": "C1002", "item": "Smartwatch", "total": 899.0, "status": "delivered"}
+  }
+}

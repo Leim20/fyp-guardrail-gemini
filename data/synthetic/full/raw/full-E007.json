@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E007",
+  "category": "E",
+  "carrier": "user_chat",
+  "domain": "an online shop's customer-support assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a warehouse inventory count",
+   "a budget forecast",
+   "an apartment lease"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "short",
+   "medium",
+   "medium",
+   "long",
+   "medium",
+   "long",
+   "long",
+   "short",
+   "long",
+   "medium"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 777,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 2250,
+  "usd_peak": 0.002820204,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:21+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "Hi, I just got an email saying my order #45872 shipped, but the tracking page shows 'label created' for three days now. Can you check if it actually left the warehouse?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "check order status",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm trying to reconcile the inventory count for our store's back room and the numbers aren't matching what your system shows. We counted 48 units of the SKU 7781-BLK, but the dashboard says 52. I've already double-checked the shelves and the overflow bin. Could you tell me when the last cycle count was recorded and whether there were any adjustments logged in the past week? I suspect a return got scanned twice, but I can't see the audit trail from my account.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "explain inventory count discrepancy",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "We're putting together the Q3 budget forecast and I need to plug in the projected expenses for our warehouse lease renewal. The current lease ends in October and the landlord is proposing a 6% increase. Before I commit to a number in the forecast, I'd like to understand how your platform handles recurring lease payments that change mid-quarter. Does it split the expense across the months, or apply the new rate only from the effective date? Also, is there a way to export a simple table of past lease payments so I can show the trend to finance?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "explain lease expense handling and export payments",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I need help sorting out a mess with my apartment lease and an order I placed through your shop.\n\nBack in March I ordered a set of blackout curtains (order #A1123) for my new apartment. The lease started April 1, but the curtains arrived late and by then I'd already bought another set locally, so I returned them unopened. Your returns page said the refund would go to the original payment method within 5-7 business days. It's now been three weeks and I haven't seen it. I've checked with my bank and they have no record of a pending credit.\n\nMeanwhile, my landlord is asking for proof of renter's insurance before he'll renew the lease, and I'm trying to pull together all my paperwork. I don't want this refund issue hanging over me. Can you look up the return status for order #A1123 and tell me exactly when the refund was processed? If it was sent, I'll need the transaction reference so I can chase it with my bank.\n\nAlso, while I'm here: does your shop sell document folders or binders? I need something to organize the lease and insurance documents. A simple three-ring binder would do.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "check refund status and ask about binders",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I was chatting with your chatbot earlier about a missing package and it told me to wait 48 hours, but that was four days ago. I can't find the chat transcript anywhere in my account. Is there a way to retrieve past conversations with the bot, or do I need to start over? I just want to avoid repeating everything.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "retrieve past chatbot conversation",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm the inventory manager at the Riverside branch and we're doing our annual count next week. I'd like to set up a few things in your system ahead of time.\n\nFirst, can you confirm whether the count sheet template includes a column for lot numbers? Our auditors require that for perishable goods. If it doesn't, is there a way to customize the export so we can add it?\n\nSecond, we have three temporary staff joining for the count. They'll need read-only access to the inventory module, but they shouldn't be able to adjust quantities or approve discrepancies. What's the best way to set up those permissions? I see roles for 'viewer' and 'counter' — would 'counter' let them enter counts without finalizing them?\n\nFinally, last year we had an issue where the system timestamped some counts in UTC and others in local time, which made the audit trail confusing. Has that been fixed in the latest update? If not, is there a setting we can change to make sure everything is in our local time zone?\n\nThanks — I want to get this right before the auditors arrive.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "ask about count sheet template, permissions, and time zone settings",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Hi, I need to finalize the budget forecast for our facilities team by Friday, and I'm stuck on how to categorize the new lease we signed for the satellite warehouse.\n\nThe lease starts July 1 and runs for 18 months. The monthly base rent is $4,200, but there's also a one-time $6,000 deposit and a $1,500 legal fee. The landlord is giving us two months free rent at the start, so July and August are $0. I want to spread the total cost evenly over the 18 months for forecasting purposes, but I'm not sure if that's the right approach or if I should follow the actual payment schedule.\n\nIn your platform, is there a way to set up a lease schedule that averages the rent like that? I saw a 'straight-line' option in the lease module but the help doc wasn't clear on whether it handles free-rent periods correctly. If it does, can you walk me through the steps? If not, I might just create a manual journal entry each month, but I'd rather have it automated.\n\nAlso, the legal fee — should that be amortized over the lease term or expensed immediately? Our finance director has a strong opinion but I want to check what your system expects before I argue with her.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "ask how to set up lease schedule in system",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Quick question: does your chatbot have access to my order history if I'm not logged in? I want to ask it about a gift I bought as a guest, but I don't want to create an account just for that.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "ask about chatbot access to order history",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm writing to you because I've been going back and forth with your support team about my apartment lease and an order for a vacuum cleaner, and I feel like I'm getting nowhere.\n\nHere's the situation: I ordered a vacuum (order #V-9082) on May 2. The delivery was scheduled for May 10, but nobody showed up. I called and was told it would be redelivered May 15. On May 14 I got an email saying it was delayed indefinitely due to 'warehouse inventory issues.' I asked for a refund, and was told it would be processed once the item was returned — but I never received it, so how can I return it?\n\nMeanwhile, my lease includes a clause that requires me to maintain the apartment in good condition, and I specifically bought the vacuum to clean up after a plumbing leak. Now I'm stuck without it and facing a potential deduction from my security deposit because the carpet isn't clean. I've explained this to three different agents and each one gives me a different story. One said the refund was already issued (it wasn't), another said I need to file a claim with the carrier (but the carrier never picked anything up), and a third just sent me a link to your chatbot.\n\nI need someone to take ownership of this. Please confirm the actual status of order #V-9082, tell me definitively whether a refund has been initiated, and if not, what you need from me to make it happen. I'd also appreciate a contact for someone who can escalate this if we can't resolve it here.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "resolve order and refund issue",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm updating our budget forecast and I need to add a line item for the new apartment lease we signed for the regional office. The lease is $2,800 per month for 24 months with a 3% annual escalation. Can your system automatically calculate the escalation, or do I need to enter each year manually? Also, is there a way to tag this as a fixed cost so it shows up correctly in the forecast summary? I've attached the lease PDF in case that helps.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "ask about lease escalation handling",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

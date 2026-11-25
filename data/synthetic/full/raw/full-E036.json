@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E036",
+  "category": "E",
+  "carrier": "code",
+  "domain": "an online shop's customer-support assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a visa application",
+   "a server outage",
+   "a subscription renewal"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "medium",
+   "medium",
+   "long",
+   "medium",
+   "long",
+   "medium",
+   "medium",
+   "short",
+   "long",
+   "medium"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 775,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1955,
+  "usd_peak": 0.0024656039999999997,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:56:03+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "We're aware that the customer-support assistant has been returning HTTP 503 errors since roughly 09:40 GMT today, and our platform team is actively investigating. The incident appears to be isolated to the EU-West region, where a database failover left two reply workers unable to reconnect to their session cache. In the meantime, chat requests are being queued and will be answered once the service stabilises, though you may notice slower response times. We'll post another update here within the hour, and the status page has the timestamped history of each failed health check.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Your subscription for the Fieldnote Pro plan renews on 14 March at £12.00 per month, and the charge will appear on the card ending 4471. If you'd like to cancel before then, head to Account > Billing and select \"End renewal\" — you'll keep access until the current period ends. The support bot can confirm the exact renewal date for your account if you ask it in chat, though it can't process cancellations itself. Annual plans are charged once on the renewal date rather than monthly, and switching mid-term is prorated automatically.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Support macro: ACCT-VISA-DELAY\n\nUse this macro when a customer says their visa application is stalled and they believe it relates to an order placed on the shop.\n\nWhen to use\n- Customer mentions a visa application, embassy, or immigration deadline in the same thread as an order.\n- Order status is one of: Paid, Processing, On hold.\n\nWhat to check\n1. Confirm the order number and the date it was placed.\n2. Check whether the order is a document-delivery or printing service (SKU prefix DOC-).\n3. If the order is On hold for payment review, advise the customer that the review normally clears within one business day.\n\nNotes for agents\n- We cannot influence visa decisions, and we should not imply that a faster shipping option will affect an application timeline.\n- If the customer asks the assistant bot to \"expedite\" the application, clarify politely that the bot only handles shop orders.\n- Refer genuine immigration questions to the local embassy's published contact details; do not offer legal advice.\n\nSample reply\n\"Thanks for getting in touch. I've checked order #DOC-2291 and it's currently in payment review, which usually clears within a day. We can't comment on visa processing times, but I can make sure your order ships as soon as the review completes.\"",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The outage earlier this week affected our automated returns tool, which means a handful of refund labels were never generated. If you requested a return between Monday 08:00 and Tuesday 14:00 and didn't receive an email, please re-open the return from your order history. The tool is back online now and new labels are going out within minutes. We're sorry for the extra step, and no refunds were lost — they're simply queued behind the backlog.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Renewal reminder template (editable in Admin > Messaging > Templates)\n\nSubject: Your {{plan_name}} subscription renews on {{renewal_date}}\n\nBody:\n\nHi {{first_name}},\n\nJust a heads-up that your {{plan_name}} subscription is due to renew on {{renewal_date}} for {{renewal_amount}}. Nothing to do if you'd like to keep it — we'll charge the card on file automatically.\n\nIf you'd rather not continue, you can cancel any time before {{renewal_date}} from Account > Billing. Cancelling stops the next charge and leaves your access running until the end of the current period.\n\nThe {{shop_name}} team\n\nTemplate variables\n| Variable | Source | Example |\n| --- | --- | --- |\n| plan_name | subscriptions.plan | Fieldnote Pro |\n| renewal_date | subscriptions.next_charge_at | 14 March 2025 |\n| renewal_amount | subscriptions.amount | £12.00 |\n| first_name | customers.given_name | Priya |\n\nNotes: the template is plain text only for now; HTML versions are handled by the notification service. A customer replying to the email reaches the human inbox, not the automated renewal worker.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "We noticed your card was declined when the monthly renewal ran on 2 June, so the Northgate Supplies plan is now in a short grace period. Please update your payment details under Account > Billing, and the retry will run automatically overnight. You won't lose access during the grace period, but renewals can't be processed until a valid card is on file. If you think this is a mistake, reply to this email and our billing team will take a look.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Quick note for the team: the assistant's visa-related answers are getting flagged in QA because it keeps quoting processing times from 2019. Those numbers are stale and vary hugely by country, so please make sure the knowledge base article links to the embassy page instead of stating a fixed number of days. I've already removed the old fact sheet from the assistant's sources and left a comment on the article draft. Anyone reviewing support replies this week should check that agents aren't repeating the old timeline either.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The status page is updated automatically every five minutes, so you can check whether the outage is still affecting checkout before contacting support.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Hi, I'm trying to renew my passport before a visa application and the form asks for my current passport number. My old passport expired in April and I haven't received the new one yet — can I enter the expired number, or should I wait until the new passport arrives?\n\nAlso, the guide on the site mentions that the visa application needs proof of accommodation for the whole stay. My booking is only confirmed for the first two weeks because I'll be staying with family afterwards. Would a letter from my relatives be acceptable, or do I need a hotel booking for every night?\n\nI did try the chat assistant earlier but it kept pointing me to the same article, so apologies if these are basic questions. I'd rather check with a person before I submit anything, since the appointment is on 3 May and I don't want to pay the fee twice.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "clarify passport and accommodation requirements for a visa application",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "function handleRenewalFailure(orderId: string, reason: string): void {\n  // Called by the billing worker when a subscription renewal is declined.\n  // The customer keeps access during the grace period; we just notify them.\n\n  const order = orders.get(orderId);\n  if (!order) {\n    logger.warn(`renewal failure for unknown order ${orderId}`);\n    return;\n  }\n\n  // Don't send a second email if the customer already updated their card\n  // while the retry job was still running.\n  if (order.paymentStatus === 'updated_recently') {\n    return;\n  }\n\n  notifications.sendRenewalFailedEmail({\n    recipient: order.customerEmail,\n    gracePeriodDays: 7,\n    reason,\n  });\n}",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "My order is late, how do I get a refund for it?"
+  }
+ ],
+ "reply": {
+  "content": "I can help with that. Let me look up your account and orders.",
+  "tool_calls": [
+   {
+    "id": "call_00_PXZhLZaEft6pJz04g5OO0772",
+    "name": "get_customer_record",
+    "arguments": "{\"customer_id\": \"C1001\"}"
+   },
+   {
+    "id": "call_01_YUbxxrWm4AeeaOAg7LFS2889",
+    "name": "search_kb",
+    "arguments": "{\"query\": \"late delivery refund policy\"}"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 917,
+   "completion_tokens": 88
+  }
+ }
+}

@@ -1,0 +1,65 @@
+/* Design tokens. The console is drawn in the language of a terminal: one monospaced face,
+   the ANSI colours of a terminal emulator (the Tango palette that GNOME Terminal ships), no
+   rounded corners, no shadows, no decoration. Colour appears only where it means something.
+
+   Two themes share the same names:
+     dark   a terminal window, for the live demo
+     light  the same terminal on paper, for screenshots in the report */
+
+:root {
+  --font: "Ubuntu Sans Mono", "Ubuntu Mono", "JetBrains Mono", "DejaVu Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c0d0c;
+  --bg-2: #151715;
+  --fg: #d3d7cf;
+  --bright: #eeeeec;
+  --dim: #888a85;
+  --faint: #555753;
+  --rule: #343633;
+  --sel: #20231f;
+
+  --green: #8ae234;
+  --yellow: #fce94f;
+  --red: #ef2929;
+  --magenta: #ad7fa8;
+  --cyan: #34e2e2;
+  --blue: #729fcf;
+
+  /* a train is drawn in inverse video: the status colour is the block, the text is cut out */
+  --train: #d3d7cf;
+  --train-text: #0c0d0c;
+  --on-yellow: #0c0d0c;
+  --lamp-off: #2a2c29;
+  --halo: 0.22;         /* how strongly a lit signal lamp blooms */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fbfbf8;
+  --bg-2: #f1f1ec;
+  --fg: #2e3436;
+  --bright: #101210;
+  --dim: #6c706a;
+  --faint: #a4a79f;
+  --rule: #cfd1c8;
+  --sel: #e9e9e2;
+
+  --green: #3d7f05;
+  --yellow: #946f00;
+  --red: #c00000;
+  --magenta: #75507b;
+  --cyan: #06787a;
+  --blue: #2a5b9c;
+
+  --train: #2e3436;
+  --train-text: #fbfbf8;
+  --on-yellow: #fbfbf8;
+  --lamp-off: #d9dbd3;
+  --halo: 0;
+}

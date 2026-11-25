@@ -1,0 +1,20 @@
+{
+  "stage": "pilot",
+  "verified": 197,
+  "kept": 193,
+  "dropped": 4,
+  "paths": {
+    "verifier/keep": 193,
+    "verifier/drop": 4
+  },
+  "dropped_by_category": {
+    "A": 3,
+    "B": 1
+  },
+  "kept_by_label": {
+    "0": 100,
+    "1": 93
+  },
+  "complete_pairs": 20,
+  "usd_peak": 0.0933
+}

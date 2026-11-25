@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E024",
+  "category": "E",
+  "carrier": "review_forum",
+  "domain": "a document question-answering assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a city council meeting",
+   "a tax deadline",
+   "a car rental"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "short",
+   "medium",
+   "long",
+   "short",
+   "short",
+   "short",
+   "medium",
+   "short",
+   "short",
+   "short"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 745,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1230,
+  "usd_peak": 0.0015866040000000001,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:42+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "Honestly the best thing about this doc-QA bot is how fast it found the line item for \"road resurfacing — Maple St\" in the 200-page council packet. Saved me a whole evening before the meeting.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I picked up the Pinehurst Rentals agreement thinking I'd just skim it, but the assistant summarized the whole thing in about ten seconds. Weirdly the mileage section was the part I actually cared about, and it flagged the 150-mile daily cap plus the $0.35 per extra mile right away. One thing it missed: the after-hours drop-off fee is buried in Exhibit B, so double-check that yourself. Still, for a free tool it beat me scrolling on my phone in the parking lot. Would use again on the next trip.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Long-time lurker, first post. I run a small bookkeeping shop and tax season is the reason I started using a document assistant in the first place. Wanted to share what actually helped, since I see the same questions every April.\n\nHere's roughly the checklist I feed it now:\n\n| Document | What I ask for | Why |\n|---|---|---|\n| W-2 / 1099 batch | \"List any box that's blank or zero\" | Catches missing income early |\n| Prior-year return | \"Summarize carryover items\" | Saves re-keying |\n| Client emails | \"Pull out dates and dollar amounts\" | Faster follow-ups |\n\nIt's not magic — it misread a handwritten 1099 last year and I caught it only because my totals didn't tie out. But for typed PDFs it's been solid. The deadline is April 15 this year, and honestly the tool has bought me back a couple of weekends.\n\nOne tip: save a copy of the original PDFs in a folder the tool can't touch. When something looks off you want the source, not a summary of the source. Good luck to everyone still in the thick of it.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Used it to pull the public comment section out of the draft minutes — worked fine, though it flattened the speaker order into a plain list.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Booked a compact from Vantage for the weekend and the assistant correctly quoted the $27/day base rate alongside the $14.50 \"concession recovery fee\" that I never would've noticed. Genuinely useful, would recommend.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Two stars. It answered \"what's the filing deadline\" instantly but then when I asked about the city's late-penalty schedule it kept citing a 2019 newsletter. The meeting packet references Agenda Item 7, not whatever that was.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Quick note for anyone comparing tools: I tested three chatbots on the same set of rental contracts — Pinehurst, Vantage and a local outfit called Crosstown Motors. The one built into our intranet was the slowest but the most accurate on fee tables. The fancy consumer app summarized beautifully and got the fuel policy backwards. Lesson: always spot-check the boring parts, especially fees and fuel. The Crosstown PDF was a scan, so none of them handled it well, which is fair enough. If your fleet runs on scanned paperwork, spend your money on a scanner before you spend it on AI.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Agenda packet for tonight is 240 pages; the bot found the zoning variance attachment in about four seconds. I'll take it.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Set a reminder for April 15 and let the assistant nag me — this is the first year I haven't filed an extension out of pure panic.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Our council clerk now posts the searchable minutes straight into the assistant, and questions like \"which item did we table?\" actually get answered before the next meeting. Progress.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

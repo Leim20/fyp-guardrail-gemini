@@ -1,0 +1,364 @@
+Loading weights:   0%|          | 0/102 [00:00<?, ?it/s]Loading weights:   3%|▎         | 3/102 [00:00<00:04, 22.64it/s]Loading weights: 100%|██████████| 102/102 [00:00<00:00, 753.87it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-small
+Key                                     | Status     | 
+----------------------------------------+------------+-
+mask_predictions.classifier.weight      | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight | UNEXPECTED | 
+mask_predictions.dense.bias             | UNEXPECTED | 
+lm_predictions.lm_head.dense.weight     | UNEXPECTED | 
+mask_predictions.LayerNorm.bias         | UNEXPECTED | 
+mask_predictions.classifier.bias        | UNEXPECTED | 
+mask_predictions.LayerNorm.weight       | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.bias   | UNEXPECTED | 
+mask_predictions.dense.weight           | UNEXPECTED | 
+lm_predictions.lm_head.bias             | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias       | UNEXPECTED | 
+pooler.dense.bias                       | MISSING    | 
+classifier.bias                         | MISSING    | 
+classifier.weight                       | MISSING    | 
+pooler.dense.weight                     | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1247 loss 0.7407 | elapsed 0:12 | training ETA 7:34
+epoch 1 step 200/1247 loss 0.2776 | elapsed 0:22 | training ETA 6:32
+epoch 1 step 300/1247 loss 0.1300 | elapsed 0:32 | training ETA 6:18
+epoch 1 step 400/1247 loss 0.0870 | elapsed 0:44 | training ETA 6:08
+epoch 1 step 500/1247 loss 0.0721 | elapsed 0:55 | training ETA 5:57
+epoch 1 step 600/1247 loss 0.0968 | elapsed 1:06 | training ETA 5:47
+epoch 1 step 700/1247 loss 0.0473 | elapsed 1:17 | training ETA 5:37
+epoch 1 step 800/1247 loss 0.0479 | elapsed 1:29 | training ETA 5:27
+epoch 1 step 900/1247 loss 0.0615 | elapsed 1:43 | training ETA 5:25
+epoch 1 step 1000/1247 loss 0.0271 | elapsed 1:54 | training ETA 5:14
+epoch 1 step 1100/1247 loss 0.0055 | elapsed 2:05 | training ETA 5:00
+epoch 1 step 1200/1247 loss 0.0240 | elapsed 2:16 | training ETA 4:49
+epoch 1 done: train loss 0.1311, val loss 0.6823, val ROC-AUC 0.9812
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.40it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.40it/s]
+epoch 2 step 100/1247 loss 0.0074 | elapsed 2:36 | training ETA 4:37
+epoch 2 step 200/1247 loss 0.0103 | elapsed 2:47 | training ETA 4:25
+epoch 2 step 300/1247 loss 0.0174 | elapsed 2:59 | training ETA 4:14
+epoch 2 step 400/1247 loss 0.0051 | elapsed 3:11 | training ETA 4:03
+epoch 2 step 500/1247 loss 0.0067 | elapsed 3:22 | training ETA 3:51
+epoch 2 step 600/1247 loss 0.0044 | elapsed 3:33 | training ETA 3:38
+epoch 2 step 700/1247 loss 0.0041 | elapsed 3:45 | training ETA 3:27
+epoch 2 step 800/1247 loss 0.0262 | elapsed 3:57 | training ETA 3:16
+epoch 2 step 900/1247 loss 0.0151 | elapsed 4:06 | training ETA 3:03
+epoch 2 step 1000/1247 loss 0.0037 | elapsed 4:17 | training ETA 2:50
+epoch 2 step 1100/1247 loss 0.0071 | elapsed 4:27 | training ETA 2:38
+epoch 2 step 1200/1247 loss 0.0084 | elapsed 4:39 | training ETA 2:27
+epoch 2 done: train loss 0.0093, val loss 0.6944, val ROC-AUC 0.9837
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s]
+epoch 3 step 100/1247 loss 0.0014 | elapsed 5:00 | training ETA 2:12
+epoch 3 step 200/1247 loss 0.0050 | elapsed 5:12 | training ETA 2:01
+epoch 3 step 300/1247 loss 0.0031 | elapsed 5:23 | training ETA 1:49
+epoch 3 step 400/1247 loss 0.0060 | elapsed 5:32 | training ETA 1:37
+epoch 3 step 500/1247 loss 0.0001 | elapsed 5:43 | training ETA 1:25
+epoch 3 step 600/1247 loss 0.0028 | elapsed 5:54 | training ETA 1:14
+epoch 3 step 700/1247 loss 0.0001 | elapsed 6:04 | training ETA 1:02
+epoch 3 step 800/1247 loss 0.0001 | elapsed 6:15 | training ETA 0:50
+epoch 3 step 900/1247 loss 0.0000 | elapsed 6:26 | training ETA 0:39
+epoch 3 step 1000/1247 loss 0.0001 | elapsed 6:39 | training ETA 0:28
+epoch 3 step 1100/1247 loss 0.0013 | elapsed 6:50 | training ETA 0:16
+epoch 3 step 1200/1247 loss 0.0000 | elapsed 7:04 | training ETA 0:05
+epoch 3 done: train loss 0.0016, val loss 0.5857, val ROC-AUC 0.9862
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 17173.17it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.18it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.18it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 17833.07it/s]
+                         n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                  
+val                 1885.0      0.970   0.885  0.926  0.017    0.986            0.874
+test_deepset         116.0      0.981   0.867  0.920  0.018    0.961            0.500
+test_promptshield  23516.0      0.679   0.863  0.760  0.156    0.928            0.021
+ood_spml            1997.0      1.000   0.313  0.476  0.000    0.856            0.355
+ood_lakera           223.0      1.000   0.812  0.896    NaN      NaN              NaN
+ood_bitext          1972.0      0.000     NaN    NaN  0.001      NaN              NaN
+test_synthetic       289.0      0.720   0.634  0.675  0.213    0.796            0.157
+ood_llmail_dev       437.0      1.000   0.728  0.842  0.000    0.946            0.870
+scenarios             26.0      0.778   0.700  0.737  0.125    0.888            0.600
+val/bitext           374.0      0.000     NaN    NaN  0.003      NaN              NaN
+val/deepset           81.0      0.879   0.967  0.921  0.078    0.992            0.833
+val/promptshield     998.0      1.000   1.000  1.000  0.000    1.000            1.000
+val/synthetic        432.0      0.887   0.587  0.707  0.065    0.817            0.358
+{'gpu_latency_median_ms': 6.82, 'gpu_latency_p95_ms': 8.85, 'cpu_latency_median_ms': 54.11, 'cpu_latency_p95_ms': 179.73}
+Loading weights:   0%|          | 0/102 [00:00<?, ?it/s]Loading weights: 100%|██████████| 102/102 [00:00<00:00, 6641.61it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-small
+Key                                     | Status     | 
+----------------------------------------+------------+-
+mask_predictions.classifier.weight      | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.bias   | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight | UNEXPECTED | 
+mask_predictions.dense.bias             | UNEXPECTED | 
+mask_predictions.LayerNorm.weight       | UNEXPECTED | 
+mask_predictions.classifier.bias        | UNEXPECTED | 
+mask_predictions.dense.weight           | UNEXPECTED | 
+lm_predictions.lm_head.bias             | UNEXPECTED | 
+mask_predictions.LayerNorm.bias         | UNEXPECTED | 
+lm_predictions.lm_head.dense.weight     | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias       | UNEXPECTED | 
+pooler.dense.bias                       | MISSING    | 
+classifier.weight                       | MISSING    | 
+pooler.dense.weight                     | MISSING    | 
+classifier.bias                         | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1383 loss 0.7116 | elapsed 0:13 | training ETA 9:20
+epoch 1 step 200/1383 loss 0.3674 | elapsed 0:24 | training ETA 8:06
+epoch 1 step 300/1383 loss 0.1631 | elapsed 0:37 | training ETA 7:56
+epoch 1 step 400/1383 loss 0.1879 | elapsed 0:46 | training ETA 7:15
+epoch 1 step 500/1383 loss 0.1334 | elapsed 0:57 | training ETA 6:56
+epoch 1 step 600/1383 loss 0.0645 | elapsed 1:07 | training ETA 6:37
+epoch 1 step 700/1383 loss 0.0629 | elapsed 1:17 | training ETA 6:23
+epoch 1 step 800/1383 loss 0.0509 | elapsed 1:29 | training ETA 6:14
+epoch 1 step 900/1383 loss 0.0560 | elapsed 1:40 | training ETA 6:03
+epoch 1 step 1000/1383 loss 0.0437 | elapsed 1:52 | training ETA 5:54
+epoch 1 step 1100/1383 loss 0.0485 | elapsed 2:03 | training ETA 5:41
+epoch 1 step 1200/1383 loss 0.0355 | elapsed 2:14 | training ETA 5:30
+epoch 1 step 1300/1383 loss 0.0407 | elapsed 2:26 | training ETA 5:21
+epoch 1 done: train loss 0.1447, val loss 0.0396, val ROC-AUC 0.9994
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.20it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.20it/s]
+epoch 2 step 100/1383 loss 0.0145 | elapsed 2:47 | training ETA 5:01
+epoch 2 step 200/1383 loss 0.0126 | elapsed 2:59 | training ETA 4:51
+epoch 2 step 300/1383 loss 0.0257 | elapsed 3:11 | training ETA 4:41
+epoch 2 step 400/1383 loss 0.0120 | elapsed 3:23 | training ETA 4:30
+epoch 2 step 500/1383 loss 0.0186 | elapsed 3:34 | training ETA 4:17
+epoch 2 step 600/1383 loss 0.0185 | elapsed 3:45 | training ETA 4:06
+epoch 2 step 700/1383 loss 0.0100 | elapsed 3:57 | training ETA 3:55
+epoch 2 step 800/1383 loss 0.0128 | elapsed 4:09 | training ETA 3:44
+epoch 2 step 900/1383 loss 0.0200 | elapsed 4:21 | training ETA 3:33
+epoch 2 step 1000/1383 loss 0.0077 | elapsed 4:33 | training ETA 3:22
+epoch 2 step 1100/1383 loss 0.0095 | elapsed 4:43 | training ETA 3:09
+epoch 2 step 1200/1383 loss 0.0098 | elapsed 4:52 | training ETA 2:57
+epoch 2 step 1300/1383 loss 0.0074 | elapsed 5:04 | training ETA 2:46
+epoch 2 done: train loss 0.0141, val loss 0.0360, val ROC-AUC 0.9997
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+epoch 3 step 100/1383 loss 0.0050 | elapsed 5:28 | training ETA 2:26
+epoch 3 step 200/1383 loss 0.0015 | elapsed 5:39 | training ETA 2:15
+epoch 3 step 300/1383 loss 0.0032 | elapsed 5:52 | training ETA 2:04
+epoch 3 step 400/1383 loss 0.0046 | elapsed 6:02 | training ETA 1:52
+epoch 3 step 500/1383 loss 0.0090 | elapsed 6:13 | training ETA 1:40
+epoch 3 step 600/1383 loss 0.0062 | elapsed 6:23 | training ETA 1:29
+epoch 3 step 700/1383 loss 0.0010 | elapsed 6:34 | training ETA 1:17
+epoch 3 step 800/1383 loss 0.0004 | elapsed 6:46 | training ETA 1:06
+epoch 3 step 900/1383 loss 0.0021 | elapsed 6:58 | training ETA 0:55
+epoch 3 step 1000/1383 loss 0.0001 | elapsed 7:08 | training ETA 0:43
+epoch 3 step 1100/1383 loss 0.0001 | elapsed 7:18 | training ETA 0:32
+epoch 3 step 1200/1383 loss 0.0000 | elapsed 7:30 | training ETA 0:20
+epoch 3 step 1300/1383 loss 0.0070 | elapsed 7:40 | training ETA 0:09
+epoch 3 done: train loss 0.0029, val loss 0.0459, val ROC-AUC 0.9998
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.32it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.32it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 16930.55it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 16200.72it/s]
+                         n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                  
+val                 1885.0      0.990   0.995  0.993  0.006    1.000            0.996
+test_deepset         116.0      0.981   0.850  0.911  0.018    0.967            0.783
+test_promptshield  23516.0      0.732   0.822  0.774  0.115    0.921            0.001
+ood_spml            1997.0      1.000   0.415  0.587  0.000    0.919            0.515
+ood_lakera           223.0      1.000   0.910  0.953    NaN      NaN              NaN
+ood_bitext          1972.0        NaN     NaN    NaN  0.000      NaN              NaN
+test_synthetic       289.0      0.916   0.978  0.946  0.077    0.995            0.948
+ood_llmail_dev       437.0      1.000   0.838  0.912  0.000    0.946            0.898
+scenarios             26.0      0.909   1.000  0.952  0.062    0.994            0.900
+val/bitext           374.0        NaN     NaN    NaN  0.000      NaN              NaN
+val/deepset           81.0      0.906   0.967  0.935  0.059    0.990            0.767
+val/promptshield     998.0      1.000   1.000  1.000  0.000    1.000            1.000
+val/synthetic        432.0      0.980   0.985  0.983  0.017    0.998            0.985
+{'gpu_latency_median_ms': 6.65, 'gpu_latency_p95_ms': 8.6, 'cpu_latency_median_ms': 45.56, 'cpu_latency_p95_ms': 168.04}
+Loading weights:   0%|          | 0/102 [00:00<?, ?it/s]Loading weights: 100%|██████████| 102/102 [00:00<00:00, 5000.87it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-small
+Key                                     | Status     | 
+----------------------------------------+------------+-
+mask_predictions.classifier.bias        | UNEXPECTED | 
+lm_predictions.lm_head.bias             | UNEXPECTED | 
+mask_predictions.classifier.weight      | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.bias   | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight | UNEXPECTED | 
+mask_predictions.dense.weight           | UNEXPECTED | 
+mask_predictions.LayerNorm.bias         | UNEXPECTED | 
+mask_predictions.LayerNorm.weight       | UNEXPECTED | 
+mask_predictions.dense.bias             | UNEXPECTED | 
+lm_predictions.lm_head.dense.weight     | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias       | UNEXPECTED | 
+pooler.dense.bias                       | MISSING    | 
+pooler.dense.weight                     | MISSING    | 
+classifier.bias                         | MISSING    | 
+classifier.weight                       | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1247 loss 0.6770 | elapsed 0:10 | training ETA 6:27
+epoch 1 step 200/1247 loss 0.3213 | elapsed 0:21 | training ETA 6:21
+epoch 1 step 300/1247 loss 0.0803 | elapsed 0:33 | training ETA 6:18
+epoch 1 step 400/1247 loss 0.0352 | elapsed 0:46 | training ETA 6:27
+epoch 1 step 500/1247 loss 0.0596 | elapsed 0:58 | training ETA 6:16
+epoch 1 step 600/1247 loss 0.0623 | elapsed 1:09 | training ETA 6:03
+epoch 1 step 700/1247 loss 0.0250 | elapsed 1:21 | training ETA 5:55
+epoch 1 step 800/1247 loss 0.0398 | elapsed 1:33 | training ETA 5:43
+epoch 1 step 900/1247 loss 0.0208 | elapsed 1:44 | training ETA 5:30
+epoch 1 step 1000/1247 loss 0.0234 | elapsed 1:54 | training ETA 5:14
+epoch 1 step 1100/1247 loss 0.0268 | elapsed 2:05 | training ETA 5:01
+epoch 1 step 1200/1247 loss 0.0401 | elapsed 2:16 | training ETA 4:49
+epoch 1 done: train loss 0.1144, val loss 0.5322, val ROC-AUC 0.9813
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s]
+epoch 2 step 100/1247 loss 0.0068 | elapsed 2:34 | training ETA 4:34
+epoch 2 step 200/1247 loss 0.0196 | elapsed 2:45 | training ETA 4:23
+epoch 2 step 300/1247 loss 0.0055 | elapsed 2:57 | training ETA 4:11
+epoch 2 step 400/1247 loss 0.0117 | elapsed 3:06 | training ETA 3:57
+epoch 2 step 500/1247 loss 0.0087 | elapsed 3:17 | training ETA 3:45
+epoch 2 step 600/1247 loss 0.0110 | elapsed 3:55 | training ETA 4:01
+epoch 2 step 700/1247 loss 0.0045 | elapsed 4:06 | training ETA 3:47
+epoch 2 step 800/1247 loss 0.0005 | elapsed 4:18 | training ETA 3:33
+epoch 2 step 900/1247 loss 0.0124 | elapsed 4:29 | training ETA 3:20
+epoch 2 step 1000/1247 loss 0.0083 | elapsed 4:40 | training ETA 3:06
+epoch 2 step 1100/1247 loss 0.0041 | elapsed 4:51 | training ETA 2:53
+epoch 2 step 1200/1247 loss 0.0138 | elapsed 5:03 | training ETA 2:40
+epoch 2 done: train loss 0.0093, val loss 0.7341, val ROC-AUC 0.9775
+[W1125 19:37:16.269055523 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 11796480, total: 8186822656).
+epoch 3 step 100/1247 loss 0.0004 | elapsed 5:21 | training ETA 2:22
+epoch 3 step 200/1247 loss 0.0042 | elapsed 5:32 | training ETA 2:09
+epoch 3 step 300/1247 loss 0.0000 | elapsed 5:44 | training ETA 1:56
+epoch 3 step 400/1247 loss 0.0001 | elapsed 5:56 | training ETA 1:44
+epoch 3 step 500/1247 loss 0.0031 | elapsed 6:09 | training ETA 1:32
+epoch 3 step 600/1247 loss 0.0030 | elapsed 6:19 | training ETA 1:19
+epoch 3 step 700/1247 loss 0.0002 | elapsed 6:30 | training ETA 1:06
+epoch 3 step 800/1247 loss 0.0000 | elapsed 6:41 | training ETA 0:54
+epoch 3 step 900/1247 loss 0.0012 | elapsed 6:53 | training ETA 0:42
+epoch 3 step 1000/1247 loss 0.0019 | elapsed 7:05 | training ETA 0:30
+epoch 3 step 1100/1247 loss 0.0024 | elapsed 7:15 | training ETA 0:17
+epoch 3 step 1200/1247 loss 0.0000 | elapsed 7:25 | training ETA 0:05
+epoch 3 done: train loss 0.0016, val loss 0.9145, val ROC-AUC 0.9781
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 3545.48it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 17169.85it/s]
+                         n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                  
+val                 1885.0      0.917   0.891  0.904  0.051    0.981            0.811
+test_deepset         116.0      0.826   0.950  0.884  0.214    0.953            0.767
+test_promptshield  23516.0      0.471   0.958  0.632  0.409    0.946            0.390
+ood_spml            1997.0      0.989   0.728  0.838  0.030    0.963            0.636
+ood_lakera           223.0      1.000   0.910  0.953    NaN      NaN              NaN
+ood_bitext          1972.0      0.000     NaN    NaN  0.017      NaN              NaN
+test_synthetic       289.0      0.680   0.634  0.656  0.258    0.766            0.179
+ood_llmail_dev       437.0      0.975   0.888  0.929  0.243    0.931            0.792
+scenarios             26.0      0.778   0.700  0.737  0.125    0.900            0.500
+val/bitext           374.0      0.000     NaN    NaN  0.027      NaN              NaN
+val/deepset           81.0      0.806   0.967  0.879  0.137    0.990            0.767
+val/promptshield     998.0      0.982   1.000  0.991  0.018    1.000            1.000
+val/synthetic        432.0      0.787   0.607  0.685  0.143    0.841            0.323
+{'gpu_latency_median_ms': 6.34, 'gpu_latency_p95_ms': 8.62, 'cpu_latency_median_ms': 44.81, 'cpu_latency_p95_ms': 159.36}
+Loading weights:   0%|          | 0/102 [00:00<?, ?it/s]Loading weights:   3%|▎         | 3/102 [00:00<00:03, 28.27it/s]Loading weights: 100%|██████████| 102/102 [00:00<00:00, 936.29it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-small
+Key                                     | Status     | 
+----------------------------------------+------------+-
+lm_predictions.lm_head.dense.weight     | UNEXPECTED | 
+mask_predictions.LayerNorm.bias         | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.weight | UNEXPECTED | 
+mask_predictions.classifier.bias        | UNEXPECTED | 
+mask_predictions.dense.weight           | UNEXPECTED | 
+lm_predictions.lm_head.LayerNorm.bias   | UNEXPECTED | 
+mask_predictions.classifier.weight      | UNEXPECTED | 
+mask_predictions.dense.bias             | UNEXPECTED | 
+mask_predictions.LayerNorm.weight       | UNEXPECTED | 
+lm_predictions.lm_head.bias             | UNEXPECTED | 
+lm_predictions.lm_head.dense.bias       | UNEXPECTED | 
+pooler.dense.bias                       | MISSING    | 
+classifier.bias                         | MISSING    | 
+classifier.weight                       | MISSING    | 
+pooler.dense.weight                     | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+epoch 1 step 100/1383 loss 0.6700 | elapsed 0:11 | training ETA 7:33
+epoch 1 step 200/1383 loss 0.3501 | elapsed 0:23 | training ETA 7:40
+epoch 1 step 300/1383 loss 0.1838 | elapsed 0:35 | training ETA 7:34
+epoch 1 step 400/1383 loss 0.0859 | elapsed 0:45 | training ETA 7:10
+epoch 1 step 500/1383 loss 0.0902 | elapsed 0:58 | training ETA 7:08
+epoch 1 step 600/1383 loss 0.0508 | elapsed 1:09 | training ETA 6:50
+epoch 1 step 700/1383 loss 0.0647 | elapsed 1:20 | training ETA 6:36
+epoch 1 step 800/1383 loss 0.0498 | elapsed 1:31 | training ETA 6:24
+epoch 1 step 900/1383 loss 0.0361 | elapsed 1:42 | training ETA 6:10
+epoch 1 step 1000/1383 loss 0.0370 | elapsed 1:53 | training ETA 5:57
+epoch 1 step 1100/1383 loss 0.0450 | elapsed 2:05 | training ETA 5:46
+epoch 1 step 1200/1383 loss 0.0351 | elapsed 2:15 | training ETA 5:33
+epoch 1 step 1300/1383 loss 0.0298 | elapsed 2:26 | training ETA 5:20
+epoch 1 done: train loss 0.1265, val loss 0.0486, val ROC-AUC 0.9994
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.84it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.84it/s]
+epoch 2 step 100/1383 loss 0.0187 | elapsed 2:47 | training ETA 5:00
+epoch 2 step 200/1383 loss 0.0137 | elapsed 2:57 | training ETA 4:47
+epoch 2 step 300/1383 loss 0.0131 | elapsed 3:09 | training ETA 4:37
+epoch 2 step 400/1383 loss 0.0218 | elapsed 3:19 | training ETA 4:24
+epoch 2 step 500/1383 loss 0.0118 | elapsed 3:29 | training ETA 4:12
+epoch 2 step 600/1383 loss 0.0116 | elapsed 3:40 | training ETA 4:01
+epoch 2 step 700/1383 loss 0.0198 | elapsed 3:52 | training ETA 3:50
+epoch 2 step 800/1383 loss 0.0158 | elapsed 4:03 | training ETA 3:38
+epoch 2 step 900/1383 loss 0.0138 | elapsed 4:14 | training ETA 3:27
+epoch 2 step 1000/1383 loss 0.0071 | elapsed 4:24 | training ETA 3:16
+epoch 2 step 1100/1383 loss 0.0105 | elapsed 4:35 | training ETA 3:04
+epoch 2 step 1200/1383 loss 0.0148 | elapsed 4:47 | training ETA 2:54
+epoch 2 step 1300/1383 loss 0.0240 | elapsed 4:59 | training ETA 2:43
+epoch 2 done: train loss 0.0150, val loss 0.0358, val ROC-AUC 0.9998
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.04it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.04it/s]
+epoch 3 step 100/1383 loss 0.0062 | elapsed 5:23 | training ETA 2:24
+epoch 3 step 200/1383 loss 0.0066 | elapsed 5:34 | training ETA 2:13
+epoch 3 step 300/1383 loss 0.0018 | elapsed 5:44 | training ETA 2:01
+epoch 3 step 400/1383 loss 0.0018 | elapsed 5:54 | training ETA 1:50
+epoch 3 step 500/1383 loss 0.0035 | elapsed 6:04 | training ETA 1:38
+epoch 3 step 600/1383 loss 0.0050 | elapsed 6:17 | training ETA 1:27
+epoch 3 step 700/1383 loss 0.0006 | elapsed 6:26 | training ETA 1:16
+epoch 3 step 800/1383 loss 0.0001 | elapsed 6:37 | training ETA 1:05
+epoch 3 step 900/1383 loss 0.0035 | elapsed 6:48 | training ETA 0:53
+epoch 3 step 1000/1383 loss 0.0102 | elapsed 7:01 | training ETA 0:42
+epoch 3 step 1100/1383 loss 0.0096 | elapsed 7:13 | training ETA 0:31
+epoch 3 step 1200/1383 loss 0.0001 | elapsed 7:24 | training ETA 0:20
+epoch 3 step 1300/1383 loss 0.0062 | elapsed 7:35 | training ETA 0:09
+epoch 3 done: train loss 0.0040, val loss 0.0310, val ROC-AUC 0.9999
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 17537.62it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.33it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  2.33it/s]
+Loading weights:   0%|          | 0/106 [00:00<?, ?it/s]Loading weights: 100%|██████████| 106/106 [00:00<00:00, 18607.80it/s]
+                         n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                  
+val                 1885.0      0.996   0.992  0.994  0.003    1.000            0.997
+test_deepset         116.0      1.000   0.817  0.899  0.000    0.968            0.850
+test_promptshield  23516.0      0.830   0.811  0.820  0.063    0.939            0.346
+ood_spml            1997.0      1.000   0.474  0.643  0.000    0.976            0.855
+ood_lakera           223.0      1.000   0.803  0.891    NaN      NaN              NaN
+ood_bitext          1972.0        NaN     NaN    NaN  0.000      NaN              NaN
+test_synthetic       289.0      0.970   0.970  0.970  0.026    0.997            0.910
+ood_llmail_dev       437.0      1.000   0.745  0.854  0.000    0.971            0.925
+scenarios             26.0      0.909   1.000  0.952  0.062    0.988            0.800
+val/bitext           374.0        NaN     NaN    NaN  0.000      NaN              NaN
+val/deepset           81.0      1.000   0.933  0.966  0.000    0.997            0.933
+val/promptshield     998.0      0.998   1.000  0.999  0.002    1.000            1.000
+val/synthetic        432.0      0.990   0.980  0.985  0.009    0.999            0.990
+{'gpu_latency_median_ms': 6.33, 'gpu_latency_p95_ms': 8.41, 'cpu_latency_median_ms': 43.06, 'cpu_latency_p95_ms': 159.98}
+
+LLMail-dev ROC-AUC (primary)
+  0% synthetic    seed 42: 0.925  seed  1: 0.946  seed  2: 0.931   mean 0.934  sd 0.011  range 0.925-0.946
+  100% synthetic  seed 42: 0.897  seed  1: 0.946  seed  2: 0.971   mean 0.938  sd 0.038  range 0.897-0.971
+  iteration 2     0.825 (one run, same data, for reference)
+  -> the runs overlap: the effect is not distinguishable from run-to-run variance (n=3 per arm)
+
+deepset val F1
+  0% synthetic    seed 42: 0.857  seed  1: 0.921  seed  2: 0.879   mean 0.886  sd 0.032  range 0.857-0.921
+  100% synthetic  seed 42: 0.947  seed  1: 0.935  seed  2: 0.966   mean 0.949  sd 0.015  range 0.935-0.966
+  iteration 2     1.000 (one run, same data, for reference)
+
+Synthetic held-out F1
+  0% synthetic    seed 42: 0.703  seed  1: 0.675  seed  2: 0.656   mean 0.678  sd 0.023  range 0.656-0.703
+  100% synthetic  seed 42: 0.958  seed  1: 0.946  seed  2: 0.970   mean 0.958  sd 0.012  range 0.946-0.970
+
+Bitext val FPR
+  0% synthetic    seed 42: 0.013  seed  1: 0.003  seed  2: 0.027   mean 0.014  sd 0.012  range 0.003-0.027
+  100% synthetic  seed 42: 0.000  seed  1: 0.000  seed  2: 0.000   mean 0.000  sd 0.000  range 0.000-0.000
+  iteration 2     0.000 (one run, same data, for reference)
+
+saved results/seed_variance.json
+saved results/figures/seed_variance.png

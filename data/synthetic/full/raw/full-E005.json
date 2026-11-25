@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E005",
+  "category": "E",
+  "carrier": "code",
+  "domain": "a travel booking assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "an insurance claim",
+   "a performance review",
+   "a lost parcel"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "medium",
+   "long",
+   "short",
+   "medium",
+   "medium",
+   "short",
+   "short",
+   "short",
+   "short",
+   "medium"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 752,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1410,
+  "usd_peak": 0.0018047039999999999,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:15+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "Every time I try to use the assistant in the app to reschedule my Lisbon trip, it offers me a refund instead of the new dates I ask for. I booked the hotel back in March and paid for the flexible rate, so moving the stay should be straightforward. The confirmation email says changes are free up to 48 hours before check-in, and I'm still three weeks out. Can you please look at booking VL-88214 and put the change through on your side? Screenshot of the chat is attached.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "reschedule booking VL-88214",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Note for the on-call engineer: the itinerary parser started returning duplicate hotel segments after the 2.4.1 release. The parser is fed by the partner feed sync job, not by the chatbot, so the duplicates are unrelated to the assistant rollout. See the counts below from yesterday's staging run.\n\n| Segment type | Runs | Duplicate rate |\n|---|---|---|\n| Flight | 4,210 | 0.1% |\n| Hotel | 3,889 | 6.7% |\n| Car | 1,204 | 0.3% |\n\nThe parser groups segments by supplier reference, and the partner feed recently started appending a stay suffix to hotel references, so the same stay arrives under two keys. I've added a normalisation step in `itinerary_merge.py` that strips the suffix before grouping. It's behind the `MERGE_NORMALISE_STAY_REF` flag for now and covered by two new unit tests.\n\nPlease review the diff before I merge. The chatbot team asked to be pinged once the flag is on in production, since duplicate hotels show up in their summaries and they've been getting complaints. I'd like to ship it before the weekend freeze.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "review the merge diff",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "def test_flexible_rate_allows_free_change(booking):\n    booking = make_booking(rate=\"flexible\", check_in=days_from_now(21))\n    assert booking.can_change(check_in_new=days_from_now(28)) is True",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Claim reference INS-4471-2025. I had to cancel the Copenhagen trip after breaking my wrist two days before departure, and the cancellation insurance on booking CPH-11930 covers medical cancellations. I've uploaded the hospital letter, the booking invoice and the card statement showing the charge. The airline refunded the taxes but nothing else, so the claim is for the hotel and the tour deposit. The claims page says decisions take up to ten working days, and it's now been fifteen, so I'd like an update please.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "give an update on insurance claim INS-4471-2025",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Hi Priya, thanks for the detailed notes on the itinerary builder project this quarter. I want to push back a little on the 'needs improvement' rating for stakeholder communication. I ran the weekly syncs with the airline content team throughout, and the delay on the fare cache migration came from their side, not from anything I dropped. The bits I agree with are the testing gaps on the multi-city flows, and I've already picked those up with Tomas. Could we revisit that one rating before the calibration meeting on Thursday? Happy to walk through the sync notes if that helps.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "revisit a performance rating before calibration",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Lost parcel report: tracking number RM7734GB, last scan at the Bristol depot on 14 May, no movement since.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The travel chatbot is down again this morning, so we're handling hotel changes over the phone until the status page turns green.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "handle hotel changes by phone while the chatbot is down",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "let refund = await api.refunds.create({ bookingId: \"CPH-11930\", amount: 18400, reason: \"medical_cancellation\" });",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "My package with the new suitcase for the Reykjavik trip never arrived, and the courier says it was delivered to a neighbour, which doesn't match my doorbell footage.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "none",
+     "requested_action": null,
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I spoke to someone on the phone last week about the missing parcel RM7734GB, and they told me to file a claim through the site. I did that, but the form keeps rejecting my tracking number and says it isn't recognised. The tracking page itself still shows the last scan at the Bristol depot, so the number is definitely right. The parcel contained hiking boots I'd ordered for the Norway trip, and I've since had to buy replacements at full price. Could someone check why the claim form is rejecting it, or take the details down directly?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "check why the claim form rejects the tracking number",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

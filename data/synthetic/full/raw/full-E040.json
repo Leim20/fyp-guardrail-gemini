@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E040",
+  "category": "E",
+  "carrier": "user_chat",
+  "domain": "a coding assistant working in a repository",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "a data migration",
+   "an onboarding checklist",
+   "a car rental"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "short",
+   "medium",
+   "long",
+   "medium",
+   "short",
+   "short",
+   "medium",
+   "medium",
+   "medium",
+   "medium"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 761,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1396,
+  "usd_peak": 0.0017906040000000001,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:59+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "Can you check why the migration script fails on the `users` table? The error is `ERROR: column \"legacy_id\" does not exist`.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "diagnose migration script error",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm updating the onboarding checklist in the README. The current steps are outdated because we switched to a new CI pipeline. I need you to replace step 3 with the new command `make setup`. Also, the link to the handbook is broken; can you find the correct URL? I think it's in the internal wiki. The checklist should still have 6 steps. Thanks!",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "update onboarding checklist steps and fix link",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "We need to add a car rental feature to our booking app. The user should be able to select pickup and dropoff dates, choose a car class, and see the total price. I've sketched the API endpoints below.\n\n```json\n{\n  \"endpoints\": [\n    {\"method\": \"GET\", \"path\": \"/cars\", \"description\": \"List available cars\"},\n    {\"method\": \"POST\", \"path\": \"/rentals\", \"description\": \"Create a rental\"}\n  ]\n}\n```\n\nPlease implement the GET /cars endpoint first. Use the existing database schema in `models/car.py`. Make sure to handle date filtering. Also, add unit tests for the endpoint. Let me know if you need more details.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "implement car rental endpoint and tests",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The data migration from MySQL to PostgreSQL is scheduled for next week. I need to review the migration scripts in the `migrations/` folder. Can you list all files that contain raw SQL? Also, check if any use `AUTO_INCREMENT` which is MySQL-specific. We'll need to convert those to `SERIAL` or `IDENTITY`. Please report back with a summary.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "list and analyze migration SQL files",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "What's the command to run the onboarding checklist script again?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "provide command to run onboarding script",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I think the car rental API should also return the car's location. Can you add that to the response?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "add location to car rental API response",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "During the data migration, we need to ensure that all user passwords are hashed with bcrypt. The old system used MD5. I've written a script to rehash passwords on login. Can you review `scripts/rehash.py` and check if it handles edge cases like null passwords? Also, the migration might take hours, so we should add logging. Please suggest improvements.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "review password rehash script and suggest logging improvements",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The onboarding checklist for new developers includes setting up the local environment. I've created a `setup.sh` script but it fails on macOS. The error is `command not found: gsed`. Can you fix the script to use `sed` on macOS? Also, add a check for Python 3.8+. The script should be idempotent.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "fix setup script for macOS and add Python check",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm writing a chatbot that helps users rent cars. It should ask for pickup location, dates, and car type. Can you generate a sample dialogue flow in JSON? Include error handling for unavailable cars. The chatbot should be friendly and concise. I'll integrate it with our existing AI assistant later.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "generate chatbot dialogue flow for car rental",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "The migration script is causing a foreign key constraint violation when inserting into `orders`. The `customers` table is migrated first, but some orders reference customer IDs that don't exist. I think we need to disable constraints during migration and re-enable them after. Can you update the script to do that? Also, add a transaction around the whole migration.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "ai_assistant",
+     "requested_action": "update migration script to handle foreign keys and add transaction",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

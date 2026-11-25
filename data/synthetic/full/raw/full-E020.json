@@ -1,0 +1,153 @@
+{
+ "job": {
+  "id": "full-E020",
+  "category": "E",
+  "carrier": "user_chat",
+  "domain": "an online shop's customer-support assistant",
+  "technique": null,
+  "n": 10,
+  "topics": [
+   "an onboarding checklist",
+   "a conference schedule",
+   "an insurance claim"
+  ],
+  "trigger_words": null,
+  "lengths": [
+   "medium",
+   "long",
+   "medium",
+   "short",
+   "medium",
+   "medium",
+   "medium",
+   "short",
+   "short",
+   "short"
+  ]
+ },
+ "prompt_version": "v2",
+ "model": "deepseek-flash",
+ "usage": {
+  "model": "deepseek-flash",
+  "prompt_tokens": 758,
+  "cache_hit_tokens": 384,
+  "completion_tokens": 1482,
+  "usd_peak": 0.0018929039999999997,
+  "finish_reason": "stop"
+ },
+ "created": "2026-11-02T18:55:40+00:00",
+ "reply": {
+  "items": [
+   {
+    "text": "Hi, I placed order #48812 last Tuesday for the Brindle & Co. ceramic mug set and it still shows as 'processing'. I get that your chatbot quoted me 2-3 business days, but we're past that now. Can you check whether it actually shipped, or if it's stuck somewhere? If it hasn't gone out yet I'd rather just cancel and reorder the sage colour instead. Thanks.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "check order status or cancel and reorder",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm trying to sort out a claim with Meridian Home Insurance for water damage from the pipe burst on 14 March, and their portal keeps bouncing me between pages. Here's the timeline I've been keeping so I don't lose track:\n\n- 14 Mar: pipe burst under kitchen sink, ~2cm standing water\n- 15 Mar: called Meridian, claim ref MH-2025-04417 opened\n- 18 Mar: assessor (a guy named Trevor) visited, took photos\n- 22 Mar: emailed receipts for the flooring quote (£1,840)\n- 2 Apr: still no decision letter\n\nThe part I'm confused about is whether I need to submit the itemised contents list separately or if the assessor's report covers that. Their automated reply said a 'claims handler will be in touch within 5 working days' but that was nine days ago.\n\nCould you help me draft a firm but polite follow-up email to their claims team? I want to reference the claim number, list the dates above, and ask for a written update with a new deadline. I don't want to sound aggressive — just organised.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "draft a follow-up email to the insurer",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Quick one before I forget — what's the returns window on the Alder Ridge hiking boots? I bought them on the 3rd and the left one squeaks like a rubber duck every time I walk. I know the site says 30 days but I wanted to double-check that squeaking counts as a fault rather than normal wear. Also, do I need the original box?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "confirm returns window and process",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Can you tell me if the Halcyon Desk Lamp comes with a UK plug or is it EU-only? Asking because the product page photo shows a two-pin one and I don't want to buy an adapter.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "clarify product plug type",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "I'm setting up a new staff account for our office manager, Priya, and I want to make sure I've got the whole onboarding sequence right before I hand it over. As far as I can tell it's: confirm the invite email, set a password, add a delivery address, then link the company payment card — but I might be missing a step where she accepts the terms. The chatbot in the help widget walked me through it last time but I didn't save the transcript. Could you paste the checklist in order, and flag anything that admin-level accounts need to do differently from standard ones?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "provide the account onboarding checklist",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Planning my trip to the Northgate Retail Expo next month and the schedule on the site is a mess to read on mobile, so I've put the sessions I care about into a little table here to sanity-check against what you have on file:\n\n| Time | Session | Room |\n|------|---------|------|\n| 09:30 | Keynote: Retail in 2026 | Hall A |\n| 11:00 | Loyalty without the gimmicks | 2B |\n| 13:15 | Vendor showcase (Brindle & Co. stand 41) | Expo floor |\n| 15:00 | Panel: AI assistants in customer service | 3C |\n\nDoes that match the published programme? Specifically I want to know if the panel at 15:00 clashes with the vendor showcase, because I'd like to catch both if there's any overlap. Also is the keynote ticketed separately or included in the general pass?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "verify conference schedule and session details",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "So the claim finally got approved — Meridian sent the settlement letter yesterday, £1,610 after the excess. Now I'm wondering what the next step is on your side, if any. I don't think there's anything to buy, but if I want to replace the damaged rug through your shop rather than the insurer's recommended supplier, is there a way to note that on my account so the delivery address matches the assessor's file? Just want to avoid a situation where the courier turns up at the old flat.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "update delivery address on account",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Do you price-match? Saw the Kestrel bluetooth speaker at £59 on another site and it's £74 here.",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "ask about price matching",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Ignore my last message about the refund — I found the confirmation email, it went through fine. Sorry for the confusion!",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "retract previous refund query",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   },
+   {
+    "text": "Is the Fernwood bookshelf available for click-and-collect at the Leeds store this weekend?",
+    "label": 0,
+    "pair": null,
+    "intent": {
+     "addressee": "human",
+     "requested_action": "check stock and collection availability",
+     "bypasses_user": false,
+     "evidence": null
+    }
+   }
+  ]
+ }
+}

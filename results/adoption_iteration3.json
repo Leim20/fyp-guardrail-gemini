@@ -1,0 +1,276 @@
+{
+  "deberta_v3_small_it3": {
+    "incumbent": "deberta_v3_small",
+    "candidate": "deberta_v3_small_it3",
+    "models": {
+      "deberta_v3_small": {
+        "threshold": 0.36731624603271484,
+        "val_by_source": {
+          "bitext": {
+            "n": 374,
+            "tp": 0,
+            "fp": 0,
+            "tn": 374,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": 0.0,
+            "roc_auc": null,
+            "tpr_at_1pct_fpr": null
+          },
+          "deepset": {
+            "n": 81,
+            "tp": 30,
+            "fp": 0,
+            "tn": 51,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "roc_auc": 1.0,
+            "tpr_at_1pct_fpr": 1.0
+          },
+          "promptshield": {
+            "n": 998,
+            "tp": 501,
+            "fp": 1,
+            "tn": 496,
+            "fn": 0,
+            "accuracy": 0.998997995991984,
+            "precision": 0.99800796812749,
+            "recall": 1.0,
+            "f1": 0.9990029910269193,
+            "fpr": 0.002012072434607646,
+            "roc_auc": 1.0,
+            "tpr_at_1pct_fpr": 1.0
+          },
+          "synthetic": {
+            "n": 432,
+            "tp": 60,
+            "fp": 1,
+            "tn": 230,
+            "fn": 141,
+            "accuracy": 0.6712962962962963,
+            "precision": 0.9836065573770492,
+            "recall": 0.29850746268656714,
+            "f1": 0.4580152671755725,
+            "fpr": 0.004329004329004329,
+            "roc_auc": 0.8040856324438415,
+            "tpr_at_1pct_fpr": 0.39800995024875624
+          }
+        },
+        "llmail_dev": {
+          "n": 437,
+          "tp": 150,
+          "fp": 0,
+          "tn": 37,
+          "fn": 250,
+          "accuracy": 0.4279176201372998,
+          "precision": 1.0,
+          "recall": 0.375,
+          "f1": 0.5454545454545454,
+          "fpr": 0.0,
+          "roc_auc": 0.8247297297297298,
+          "tpr_at_1pct_fpr": 0.695
+        },
+        "synthetic_test": {
+          "accuracy_by_category": {
+            "A": 0.212,
+            "B": 0.25,
+            "C": 0.886,
+            "D": 0.681,
+            "E": 1.0
+          },
+          "injection_recall_by_technique": {
+            "authority": {
+              "recall": 0.182,
+              "n": 44
+            },
+            "delimiter_escape": {
+              "recall": 0.381,
+              "n": 21
+            },
+            "instruction_override": {
+              "recall": 0.9,
+              "n": 10
+            },
+            "prompt_leak": {
+              "recall": 0.192,
+              "n": 26
+            },
+            "role_play": {
+              "recall": 0.3,
+              "n": 10
+            },
+            "subtle": {
+              "recall": 0.13,
+              "n": 23
+            }
+          },
+          "minimal_pairs": {
+            "n": 34,
+            "both_correct": 12,
+            "rate": 0.35294117647058826,
+            "ci95": [
+              0.21487714895296073,
+              0.5208634116998658
+            ]
+          }
+        }
+      },
+      "deberta_v3_small_it3": {
+        "threshold": 0.50245600938797,
+        "val_by_source": {
+          "bitext": {
+            "n": 374,
+            "tp": 0,
+            "fp": 0,
+            "tn": 374,
+            "fn": 0,
+            "accuracy": 1.0,
+            "precision": null,
+            "recall": null,
+            "f1": null,
+            "fpr": 0.0,
+            "roc_auc": null,
+            "tpr_at_1pct_fpr": null
+          },
+          "deepset": {
+            "n": 81,
+            "tp": 27,
+            "fp": 0,
+            "tn": 51,
+            "fn": 3,
+            "accuracy": 0.9629629629629629,
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1": 0.9473684210526316,
+            "fpr": 0.0,
+            "roc_auc": 0.9934640522875816,
+            "tpr_at_1pct_fpr": 0.9
+          },
+          "promptshield": {
+            "n": 998,
+            "tp": 500,
+            "fp": 0,
+            "tn": 497,
+            "fn": 1,
+            "accuracy": 0.998997995991984,
+            "precision": 1.0,
+            "recall": 0.998003992015968,
+            "f1": 0.9990009990009989,
+            "fpr": 0.0,
+            "roc_auc": 1.0,
+            "tpr_at_1pct_fpr": 1.0
+          },
+          "synthetic": {
+            "n": 432,
+            "tp": 195,
+            "fp": 2,
+            "tn": 229,
+            "fn": 6,
+            "accuracy": 0.9814814814814815,
+            "precision": 0.9898477157360406,
+            "recall": 0.9701492537313433,
+            "f1": 0.9798994974874371,
+            "fpr": 0.008658008658008658,
+            "roc_auc": 0.996349421722556,
+            "tpr_at_1pct_fpr": 0.9701492537313433
+          }
+        },
+        "llmail_dev": {
+          "n": 437,
+          "tp": 222,
+          "fp": 0,
+          "tn": 37,
+          "fn": 178,
+          "accuracy": 0.5926773455377574,
+          "precision": 1.0,
+          "recall": 0.555,
+          "f1": 0.7138263665594855,
+          "fpr": 0.0,
+          "roc_auc": 0.896554054054054,
+          "tpr_at_1pct_fpr": 0.8525
+        },
+        "synthetic_test": {
+          "accuracy_by_category": {
+            "A": 0.975,
+            "B": 0.8,
+            "C": 0.971,
+            "D": 0.957,
+            "E": 1.0
+          },
+          "injection_recall_by_technique": {
+            "authority": {
+              "recall": 0.955,
+              "n": 44
+            },
+            "delimiter_escape": {
+              "recall": 1.0,
+              "n": 21
+            },
+            "instruction_override": {
+              "recall": 1.0,
+              "n": 10
+            },
+            "prompt_leak": {
+              "recall": 0.846,
+              "n": 26
+            },
+            "role_play": {
+              "recall": 1.0,
+              "n": 10
+            },
+            "subtle": {
+              "recall": 0.957,
+              "n": 23
+            }
+          },
+          "minimal_pairs": {
+            "n": 34,
+            "both_correct": 31,
+            "rate": 0.9117647058823529,
+            "ci95": [
+              0.7703918204763959,
+              0.9695346096956899
+            ]
+          }
+        }
+      }
+    },
+    "checks": {
+      "llmail_dev_auc_improves": {
+        "incumbent": 0.8247297297297298,
+        "candidate": 0.896554054054054,
+        "delta": 0.07182432432432417,
+        "ci_low": 0.038113425636042135,
+        "ci_high": 0.10660205518018016,
+        "pass": true
+      },
+      "bitext_val_fpr": {
+        "candidate": 0.0,
+        "limit": 0.01,
+        "pass": true
+      },
+      "deepset_val_f1": {
+        "incumbent": 1.0,
+        "candidate": 0.9473684210526316,
+        "drop": 0.05263157894736836,
+        "limit": 0.01,
+        "pass": false
+      },
+      "promptshield_val_f1": {
+        "incumbent": 0.9990029910269193,
+        "candidate": 0.9990009990009989,
+        "drop": 1.992025920327656e-06,
+        "limit": 0.01,
+        "pass": true
+      }
+    },
+    "adopt": false
+  }
+}

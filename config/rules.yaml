@@ -1,0 +1,94 @@
+# Rule scanner patterns (P2 input-guard layer; FR01).
+#
+# Each rule is a case-insensitive regular expression for one known injection phrasing,
+# derived from the in-scope attack patterns in IR §1.5.2 (instruction override, role play,
+# authority claims, urgency, delimiter/context escape, prompt leaking, tool misuse).
+# Rules were written from the threat model and training data only; they are not tuned on
+# any test set.
+#
+# weight: how strongly one match alone indicates an injection (0-1). The scanner combines
+# the weights of all matching rules with a noisy-OR, score = 1 - prod(1 - weight), so several
+# weak signals can add up to a strong one. The rule-only baseline flags score >= 0.5.
+
+rules:
+  # --- instruction override ---
+  - id: ignore_previous
+    category: instruction_override
+    weight: 0.9
+    pattern: '\b(ignore|disregard|forget|overlook|bypass|override)\b[^.\n]{0,40}\b(previous|prior|above|earlier|preceding|all|any|your|the)\b[^.\n]{0,30}\b(instructions?|rules?|prompts?|directions?|guidelines?|context|commands?|polic(y|ies))\b'
+    description: Tells the model to drop earlier instructions or rules.
+  - id: ignore_previous_de
+    category: instruction_override
+    weight: 0.9
+    pattern: '\b(ignorier\w*|vergiss|vergesst|vergessen\s+sie)\b[^.\n]{0,40}\b(anweisungen|befehle|regeln|vorherigen|bisherigen|alles)\b'
+    description: German form of ignore_previous (the deepset dataset is partly German).
+  - id: forget_everything
+    category: instruction_override
+    weight: 0.8
+    pattern: '\b(forget|ignore|disregard)\s+(everything|all\s+(of\s+)?(that|this|the\s+above))\b'
+    description: Blanket reset of the conversation context.
+  - id: new_instructions
+    category: instruction_override
+    weight: 0.6
+    pattern: '\b(new|updated|real|actual|revised)\s+(instructions?|rules?|polic(y|ies)|tasks?|directives?)\s*[:\-]'
+    description: Introduces replacement instructions, e.g. "New policy:".
+  - id: before_answering
+    category: instruction_override
+    weight: 0.6
+    pattern: '\b(before|prior\s+to)\s+(replying|answering|responding)\b'
+    description: Inserts an extra task the model must do before serving the user.
+
+  # --- role play and authority claims ---
+  - id: you_are_now
+    category: role_play
+    weight: 0.6
+    pattern: '\byou\s+are\s+now\b|\bpretend\s+(to\s+be|you\s+are)\b|\bact\s+as\s+(an?\s+)?(unrestricted|unfiltered|jailbroken)\b'
+    description: Tries to give the model a new identity.
+  - id: privileged_mode
+    category: role_play
+    weight: 0.6
+    pattern: '\b(developer|admin|administrator|god|dan|jailbreak|unrestricted|debug)\s+mode\b|\b(no|without)\s+(any\s+)?(restrictions|limitations|filters|rules)\b'
+    description: Claims a privileged mode or the absence of rules.
+  - id: authority_claim
+    category: authority_claim
+    weight: 0.6
+    pattern: '\b(system|admin(istrator)?|security\s+team|developer|compliance|it\s+department|moderator)\b[^.\n]{0,15}\b(override|message|notice|instruction|alert|directive)s?\b|\b(message|notice|instruction|alert|directive)s?\s+from\s+(the\s+)?[\w\s]{0,20}\b(system|admin(istrator)?|security\s+team|developer|compliance|management)\b'
+    description: Text claims to come from a system, admin or security authority.
+
+  # --- delimiter / context escape ---
+  - id: fake_delimiter
+    category: delimiter_escape
+    weight: 0.9
+    pattern: '</?\s*(system|document|instructions?|context|im_start|im_end)\s*>|\[/?(INST|SYS)\]|<\|(im_start|im_end|system|endoftext)\|>'
+    description: Fake chat-template or document tags used to escape the data context.
+
+  # --- text addressed to the assistant inside data ---
+  - id: addressed_to_assistant
+    category: instruction_override
+    weight: 0.9
+    pattern: '\b(note|message|instructions?|attention|reminder)s?\s+(to|for)\s+(the\s+|any\s+|all\s+)?(ai|assistant|bot|chatbot|model|llm|agent)s?\b|\b(ai|assistant|bot|agent)s?\s+(reading|processing|summari[sz]ing|seeing)\s+this\b'
+    description: Data that speaks directly to the AI reading it, the signature of indirect injection.
+
+  # --- prompt leaking ---
+  - id: prompt_leak_request
+    category: prompt_leak
+    weight: 0.9
+    pattern: '\b(repeat|reveal|print|show|output|display|tell\s+me|give\s+me|write\s+out)\b[^.\n]{0,40}\b(system\s+prompt|initial\s+(prompt|instructions)|hidden\s+(rules|instructions|prompt)|(your|the)\s+(instructions|prompt|rules)\s+(above|verbatim|word\s+for\s+word))\b'
+    description: Asks the model to disclose its system prompt or hidden rules.
+  - id: system_prompt_mention
+    category: prompt_leak
+    weight: 0.4
+    pattern: '\b(system|initial)\s+prompt\b'
+    description: Mentions the system prompt; weak alone because benign questions mention it too.
+
+  # --- pressure and tool misuse ---
+  - id: urgency
+    category: urgency
+    weight: 0.3
+    pattern: '\b(urgent(ly)?|immediately|right\s+now|asap|without\s+delay)\b'
+    description: Time pressure; weak alone because real customers are often in a hurry.
+  - id: send_to_address
+    category: tool_misuse
+    weight: 0.4
+    pattern: '\b(send|e-?mail|forward|transfer|post|upload)\w*\b[^.\n]{0,80}\b[\w.+-]+@[\w-]+(\.[\w-]+)+\b'
+    description: Asks to send something to an email address, a data-exfiltration signal.

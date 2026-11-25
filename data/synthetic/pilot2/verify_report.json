@@ -1,0 +1,27 @@
+{
+  "stage": "pilot2",
+  "verified": 200,
+  "kept": 194,
+  "disputed": 6,
+  "paths": {
+    "verifier": 188,
+    "escalated": 6,
+    "disputed": 6
+  },
+  "escalated_by_category": {
+    "A": 4,
+    "B": 2,
+    "D": 6
+  },
+  "disputed_by_category": {
+    "A": 3,
+    "B": 1,
+    "D": 2
+  },
+  "kept_by_label": {
+    "0": 101,
+    "1": 93
+  },
+  "complete_pairs": 18,
+  "usd_peak": 0.1137
+}

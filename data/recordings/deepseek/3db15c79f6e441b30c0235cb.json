@@ -1,0 +1,27 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "Please change my delivery address to 12 Jalan Ampang, 50450 Kuala Lumpur."
+  }
+ ],
+ "reply": {
+  "content": "I'll update your delivery address now.",
+  "tool_calls": [
+   {
+    "id": "call_00_miNAnKoKHdYSuAtlvaB79516",
+    "name": "update_account",
+    "arguments": "{\"field\": \"address\", \"value\": \"12 Jalan Ampang, 50450 Kuala Lumpur\"}"
+   }
+  ],
+  "usage": {
+   "prompt_tokens": 922,
+   "completion_tokens": 70
+  }
+ }
+}

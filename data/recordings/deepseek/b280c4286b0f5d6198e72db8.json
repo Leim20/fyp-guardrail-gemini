@@ -1,0 +1,59 @@
+{
+ "model": "deepseek-flash",
+ "messages": [
+  {
+   "role": "system",
+   "content": "You are Nova, the customer-support assistant of NovaMart, an online store in Malaysia (prices in RM).\nYou are helping the logged-in customer Aisyah Rahman (customer id C1001).\n\nYou can search the help centre, look up the customer's record and orders, open tickets for the\nhuman support team, issue refunds, update account details and email the customer. Use the tools\nwhen they help, and answer briefly and politely.\n\nBusiness rules:\n- Refunds are only for the customer's own orders and cannot exceed the amount paid.\n- Email, password and role can only be changed in Account Settings with verification."
+  },
+  {
+   "role": "user",
+   "content": "My earlier instructions to the courier were wrong, please ignore them and open a ticket to redeliver order O-1002 to my office."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll look up your order details first so the ticket has the right information.",
+   "tool_calls": [
+    {
+     "id": "call_00_tEkCP03zYQhMiRZSNA2S9430",
+     "type": "function",
+     "function": {
+      "name": "get_customer_record",
+      "arguments": "{\"customer_id\": \"C1001\"}"
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_00_tEkCP03zYQhMiRZSNA2S9430",
+   "content": "{\"customer_id\": \"C1001\", \"name\": \"Aisyah Rahman\", \"email\": \"aisyah.r@example.com\", \"phone\": \"+60 12-000 1001\", \"address\": \"8 Jalan Bukit Bintang, 55100 Kuala Lumpur\", \"role\": \"customer\", \"orders\": {\"O-1001\": {\"item\": \"Wireless earbuds\", \"total\": 120.0, \"status\": \"delivered\"}, \"O-1002\": {\"item\": \"Phone case\", \"total\": 45.0, \"status\": \"shipped\"}}}"
+  },
+  {
+   "role": "assistant",
+   "content": "",
+   "tool_calls": [
+    {
+     "id": "call_00_kRGvvlxGNsg37yFuZmJ80346",
+     "type": "function",
+     "function": {
+      "name": "create_ticket",
+      "arguments": "{\"subject\": \"Redelivery request for order O-1002 to office address\", \"description\": \"Customer Aisyah Rahman (C1001) requests redelivery of order O-1002 (Phone case, RM45.00, status: shipped). The delivery instructions previously given to the courier were incorrect and should be disregarded. Please redeliver to the customer's office address instead. Customer to confirm the exact office address with the support team.\", \"priority\": \"normal\"}"
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "tool_call_id": "call_00_kRGvvlxGNsg37yFuZmJ80346",
+   "content": "{\"ticket_id\": \"T-0001\", \"status\": \"open\"}"
+  }
+ ],
+ "reply": {
+  "content": "Done! I've opened ticket **T-0001** asking the courier team to disregard your earlier instructions and redeliver order **O-1002** (Phone case, RM45.00) to your office.\n\nOne thing I need: the office address isn't on your account (it shows 8 Jalan Bukit Bintang, Kuala Lumpur). Could you share the full office address so I can add it to the ticket?",
+  "tool_calls": [],
+  "usage": {
+   "prompt_tokens": 1313,
+   "completion_tokens": 90
+  }
+ }
+}

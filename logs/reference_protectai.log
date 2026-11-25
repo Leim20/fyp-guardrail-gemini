@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/home/mot/fyp-guardrail/.venv/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 17340.70it/s]
+== protectai_deberta_v2 (protectai/deberta-v3-base-prompt-injection-v2)
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 19955.94it/s]
+                       n  precision  recall     f1    fpr  roc_auc  tpr_at_1pct_fpr
+set                                                                                
+val                 1079      0.989   0.672  0.800  0.007    0.856            0.687
+test_deepset         116      1.000   0.367  0.537  0.000    0.902            0.533
+test_promptshield  23516      0.394   0.033  0.060  0.019    0.705            0.016
+ood_spml            1997      0.976   0.988  0.982  0.088    0.996            0.976
+ood_lakera           223      1.000   1.000  1.000    NaN      NaN              NaN
+ood_bitext          1972      0.000     NaN    NaN  0.039      NaN              NaN
+scenarios             26      0.750   0.600  0.667  0.125    0.912            0.300
+{'gpu_latency_median_ms': 10.76, 'gpu_latency_p95_ms': 14.69, 'cpu_latency_median_ms': 91.91, 'cpu_latency_p95_ms': 391.81}
+exit=0
