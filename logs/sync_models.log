@@ -1,0 +1,58 @@
+Uploading models/ to Weiz-mot6/fyp-guardrail-models (private)
+Warning: 
+================================================================================
+`hf upload-large-folder` is DEPRECATED and will be removed in a future release.
+
+Use `hf upload` instead:
+
+    hf upload Weiz-mot6/fyp-guardrail-models 'models' --repo-type model --private
+================================================================================
+Repo created: https://huggingface.co/Weiz-mot6/fyp-guardrail-models
+Found 52 candidate files to upload
+Running validation checks on files to upload...
+Validation checks complete.
+Starting upload...
+
+
+
+---------- 2026-11-28 19:32:15 (0:00:00) ----------
+Files:   hashed 0/52 (0.0/5.8G) | pre-uploaded: 0/0 (0.0/5.8G) (+52 unsure) | committed: 0/52 (0.0/5.8G) | ignored: 0
+Workers: hashing: 8 | get upload mode: 0 | pre-uploading: 0 | committing: 0 | waiting: 0
+---------------------------------------------------
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-11-28 19:33:15 (0:01:00) ----------
+Files:   hashed 52/52 (5.8G/5.8G) | pre-uploaded: 0/12 (0.0/5.8G) | committed: 0/52 (0.0/5.8G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 7 | committing: 0 | waiting: 1
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-11-28 19:34:15 (0:02:00) ----------
+Files:   hashed 52/52 (5.8G/5.8G) | pre-uploaded: 0/12 (0.0/5.8G) | committed: 0/52 (0.0/5.8G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 7 | committing: 0 | waiting: 1
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-11-28 19:35:15 (0:03:00) ----------
+Files:   hashed 52/52 (5.8G/5.8G) | pre-uploaded: 0/12 (0.0/5.8G) | committed: 0/52 (0.0/5.8G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 7 | committing: 0 | waiting: 1
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-11-28 19:36:15 (0:04:00) ----------
+Files:   hashed 52/52 (5.8G/5.8G) | pre-uploaded: 10/12 (4.6G/5.8G) | committed: 0/52 (0.0/5.8G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 2 | committing: 0 | waiting: 6
+---------------------------------------------------
+                             Successfully committed 50 at once. Increasing the limit for next batch.
+All files have been processed! Exiting worker.
+Is done: exiting main loop
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+All files have been processed! Exiting worker.
+
+---------- 2026-11-28 19:36:37 (0:04:22) ----------
+Files:   hashed 52/52 (5.8G/5.8G) | pre-uploaded: 12/12 (5.7G/5.8G) | committed: 52/52 (5.8G/5.8G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 0 | committing: 0 | waiting: 0
+---------------------------------------------------
+Upload is complete!
+Done: https://huggingface.co/Weiz-mot6/fyp-guardrail-models

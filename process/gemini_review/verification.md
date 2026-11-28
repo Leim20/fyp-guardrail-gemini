@@ -6,6 +6,8 @@
 
 ## 1. 评审称"尚未被发现"的问题
 
+> **状态（2026-11-28）：** 下表中核实为属实的项目，已在 R1（commit `d1ed3f6`）修复。细节见 `GUARDRAIL_CHANGES.md` 的 R1 一节。被 BLOCK 的用户消息仍会写进 ledger，这一项按原来的理由不改。
+
 | 评审的说法 | 核实 | 判断 |
 |---|---|---|
 | `create_ticket` 四层全穿 | 这是刻意的范围决定：`domains/novamart/tools.yaml` 中 create_ticket 的 rationale、威胁模型 §7。工单只进内部队列，由人工处理。 | 不是新发现。可以低成本加固：给 create_ticket 加 `allowed_content`。 |

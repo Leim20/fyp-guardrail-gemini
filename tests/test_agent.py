@@ -35,22 +35,22 @@ def text(content: str) -> AssistantTurn:
 class StubSession(NoGuardSession):
     """Returns a fixed verdict for one tool and lets everything else through."""
 
-    def __init__(self, customer_id, tool, verdict):
+    def __init__(self, customer_id, tool, verdict, layer=None):
         super().__init__(customer_id)
-        self.tool, self.verdict = tool, verdict
+        self.tool, self.verdict, self.layer = tool, verdict, layer
 
     def check_action(self, call):
-        return Decision(self.verdict if call.tool == self.tool else Verdict.ALLOW, reasons=["stub"])
+        return Decision(self.verdict if call.tool == self.tool else Verdict.ALLOW, reasons=["stub"], layer=self.layer)
 
 
 class StubGuard:
     name = "stub"
 
-    def __init__(self, tool, verdict):
-        self.tool, self.verdict = tool, verdict
+    def __init__(self, tool, verdict, layer=None):
+        self.tool, self.verdict, self.layer = tool, verdict, layer
 
     def open_session(self, customer_id, session_id):
-        return StubSession(customer_id, self.tool, self.verdict)
+        return StubSession(customer_id, self.tool, self.verdict, self.layer)
 
 
 def conversation(backend, guard=None, **kwargs) -> Conversation:
@@ -73,6 +73,13 @@ def test_blocked_call_never_reaches_the_tool():
     assert convo.env.effects == []
     tool_message = backend.calls[1][-1]
     assert tool_message["role"] == "tool" and "blocked by security policy" in tool_message["content"]
+
+
+@pytest.mark.parametrize("layer, told", [("policy", True), ("taint", False), ("alignment", False), ("detector", False)])
+def test_the_llm_is_told_business_rules_but_not_how_detection_works(layer, told):
+    backend = Scripted(call("issue_refund", {"order_id": "O-1001", "amount": 500}), text("I can't do that."))
+    conversation(backend, StubGuard("issue_refund", Verdict.BLOCK, layer)).send("refund")
+    assert ("reasons" in json.loads(backend.calls[1][-1]["content"])) == told
 
 
 @pytest.mark.parametrize("approved, executed", [(False, 0), (True, 1)])

@@ -26,8 +26,11 @@ from dataclasses import dataclass, field
 from guardrail.rules import RuleScanner
 
 MIN_SENTENCE_CHARS = 12  # shorter fragments (headings, "Thanks!") carry no instruction
+MAX_SENTENCE_CHARS = 350  # inside the classifier's 512 tokens even for Chinese (about a token a character)
 REMOVED = "[removed by the guard: instruction-like text]"
-_SENTENCE_END = re.compile(r"(?<=[.!?])\s+|\n+")
+# Latin sentence ends need a following space (so "v1.2" and "RM3.50" stay whole); Chinese and Japanese
+# full-width ends do not, because those scripts put no space between sentences.
+_SENTENCE_END = re.compile(r"(?<=[.!?])\s+|(?<=[。！？])|\n+")
 _HEADER = re.compile(r"^\[[^\]\n]*\] \([a-z_]+\)$")
 
 
@@ -43,7 +46,18 @@ def canonical(text: str) -> str:
 
 
 def split_sentences(text: str) -> list[str]:
-    return [s for s in (part.strip() for part in _SENTENCE_END.split(text)) if s]
+    """Sentences, with any run longer than MAX_SENTENCE_CHARS cut into pieces at spaces. The
+    classifier reads at most 512 tokens (head and tail of a longer text), so without the cut
+    the middle of a long unpunctuated passage would never be read by it."""
+    pieces = []
+    for part in (p.strip() for p in _SENTENCE_END.split(text)):
+        while len(part) > MAX_SENTENCE_CHARS:
+            cut = part.rfind(" ", 0, MAX_SENTENCE_CHARS)
+            cut = cut if cut > 0 else MAX_SENTENCE_CHARS
+            pieces.append(part[:cut].strip())
+            part = part[cut:].strip()
+        pieces.append(part)
+    return [s for s in pieces if s]
 
 
 @dataclass

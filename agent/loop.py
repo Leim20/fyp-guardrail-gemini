@@ -103,7 +103,12 @@ class Conversation:
         self._log("tool_call", tool=call.tool, args=call.args, verdict=decision.verdict, reasons=decision.reasons,
                   layer=decision.layer)
         if decision.verdict == Verdict.BLOCK:
-            return json.dumps({"error": "blocked by security policy", "reasons": decision.reasons})
+            # A business rule ("above the order total") is something the customer may be told.
+            # How detection works (which layer, which value looked copied) is not passed on: an
+            # LLM steered by an attacker would otherwise learn what to change on the next try.
+            if decision.layer == "policy":
+                return json.dumps({"error": "blocked by security policy", "reasons": decision.reasons})
+            return json.dumps({"error": "blocked by security policy"})
         if decision.verdict == Verdict.ASK_CONFIRM:
             approved = self.confirm(call)
             self._log("confirmation", tool=call.tool, approved=approved)

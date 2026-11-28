@@ -96,12 +96,17 @@ tools:
     content_args: [subject, description]
     output_trust: internal_data
     policy:
-      deny: []
+      deny:
+        - id: unapproved_content
+          description: The subject or description contains a link, a contact or another customer's details that a chat reply could not contain either.
+          check: allowed_content
       default: ALLOW
     rationale: >
       Writes only to an internal queue that a human reviews, and moves no money or data out of
-      the system, so it is allowed. Second-order injection through ticket text aimed at human
-      staff is out of scope (threat model section 7).
+      the system, so it is allowed. The ticket text gets the same content rule as an email:
+      a planted link or contact would otherwise reach the support staff who read it.
+      Second-order injection through plain ticket prose aimed at staff is out of scope
+      (threat model section 7).
 
   issue_refund:
     description: Refund all or part of an order to the original payment method.

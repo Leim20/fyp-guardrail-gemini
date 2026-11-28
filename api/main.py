@@ -179,8 +179,10 @@ def create_app(guard: Guard | None = None, session_ttl: float = SESSION_TTL,
             except Exception as error:  # noqa: BLE001 - whatever went wrong, the safe answer is no
                 reason = f"guard error: {type(error).__name__}"
                 if isinstance(app.state.guard, HybridGuard):
-                    app.state.guard.audit.write(guard=app.state.guard.name, checkpoint=checkpoint, verdict="BLOCK",
-                                                layer="error", reasons=[reason], latency_ms=0.0)
+                    app.state.guard.audit.write(guard=app.state.guard.name, session=getattr(entry.session, "session_id", None),
+                                                principal=getattr(entry.session, "principal_id", None),
+                                                checkpoint=checkpoint, verdict="BLOCK", layer="error", reasons=[reason],
+                                                latency_ms=0.0)
                 return Decision(Verdict.BLOCK, None, [reason], layer="error")
 
     def answer(decision: Decision, confirmation: Confirmation | None = None) -> DecisionOut:
@@ -218,7 +220,8 @@ def create_app(guard: Guard | None = None, session_ttl: float = SESSION_TTL,
         entry, call = sessions.get(session_id), ToolCall(body.tool, body.args)
         with entry.lock:
             violation = entry.session.record_outcome(call, body.executed)
-            if body.executed and entry.verdicts.get(call.key()) == Verdict.ASK_CONFIRM:
+            verdict = entry.verdicts.pop(call.key(), None)   # one check covers one execution
+            if body.executed and verdict == Verdict.ASK_CONFIRM:
                 key, expiry = entry.confirmations.pop(body.confirmation_token or "", (None, 0.0))   # single use
                 if key != call.key() or expiry < time.monotonic():
                     violation = violation or "executed without a valid confirmation for this call"

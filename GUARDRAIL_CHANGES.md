@@ -414,6 +414,34 @@ IR 的目标用户是接入 guardrail 的开发者，调研里 56.3% 选了 midd
 
 ---
 
+## R1 外部评审核实后的小修复（2026-11-28）
+
+来源：Gemini 对 11-25 快照的架构评审。逐条核实的结果在 `fyp-guardrail-gemini` repo 的
+`process/gemini_review/verification.md`。这里只修核实属实、而且改动小的项。
+
+**改了什么**
+
+| 项目 | 问题 | 修法 |
+|---|---|---|
+| 一次检查只对应一次执行 | `record_outcome` 用 `.get` 读取 verdict。同一个调用被放行过一次后，再重复执行不会被发现。 | verdict 在回报结果时被取走（`.pop`），`guardrail/guard.py` 和 `api/main.py` 都改了。重复执行会被记为 "executed without being checked"。 |
+| 错误的审计记录 | fail-closed 写审计时没有 session 和 principal 字段，事后查不到是哪个会话。 | `api/main.py` 补上这两个字段。 |
+| 工单内容 | `create_ticket` 的 subject 和 description 没有内容检查，被植入的链接或联系方式会直接到达读工单的客服。 | 加上和 `send_email` 相同的 `allowed_content` 规则（`domains/novamart/tools.yaml`）。纯文字的二阶注入仍不在范围内（威胁模型 §7）。 |
+| 返回给 LLM 的拒绝原因 | 示例 agent 把所有 BLOCK 的原因都交给 LLM。被攻击者操纵的 LLM 能从中知道下次该改什么。 | 只有业务规则（policy 层，例如"超过订单金额"）会附上原因；taint、judge、detector 的拦截只返回 "blocked by security policy"（`agent/loop.py`）。 |
+| 中文句子切分 | 句子只按 `.!?` 加空格切分，中文的 `。！？` 后面没有空格，所以整段中文被当成一句。 | 也按 `。！？` 切分。 |
+| 超长文本的中间部分 | classifier 最多读 512 token（较长的文本只读开头和结尾）。一大段没有句号的文字，中间部分不会被读到。 | 超过 350 个字符的句子按空格切成几段，每段分别打分（`guardrail/detector.py`）。 |
+
+**结果**
+
+- 单元测试 189 个全部通过，新增 10 个。
+- Probe 集和 16 个场景的所有结果都和 C1 相同，只有延迟有正常的波动。
+
+**没有改的**
+
+- 被拦下的顾客消息仍计入"顾客说过的话"，理由见"尚未处理"一节。
+- 评审建议的 MCP proxy 和 turn capability compiler 不在截止日前做，理由见 `verification.md` 第 4 节。
+
+---
+
 ## 过程中新发现的问题
 
 **校准脚本的舍入错误。** `guardrail/calibrate.py` 把 "确信" 阈值按 6 位有效数字写入 `guard.yaml`。val 上最高的正常文本得分是 0.999713123，写入的值是 0.999713，比它小。所以确信区里其实有 1 条正常的 val 文本（来自 synthetic 数据），`guard.yaml` 注释里 "val 上没有任何正常文本达到它" 的说法不成立。**已在 C1 修复**：阈值按完整精度写入。

@@ -116,3 +116,14 @@ Semester 2 Gantt: Iter1 scope 21/09–04/10, Iter2 detection 05–18/10, Iter3 a
 - Probes, full guard: 0/18 executed, 1/19 refused (B17). no_judge has 0 confirm-only. Forced compromise 45/45. GUARDRAIL_CHANGES.md C1.
 - Snapshot pushed to the private repo Leim20/fyp-guardrail-gemini, for the user's Gemini brainstorming. It is a one-off and does not track the main repo.
 - Next: G2 mail-assistant domain pack, E11 authoring (decision pending: DeepSeek + fresh Claude subagent half each, recommended), then freeze the guard and score E11, the blind test and E12 once each.
+
+**2026-11-28: Gemini review, R1 fixes and backups.**
+- The user had Gemini review the fyp-guardrail-gemini snapshot. My claim-by-claim check is in that repo at process/gemini_review/verification.md.
+  - Most of its "new bugs" were already documented or out of date.
+  - It was right that DeepSeek with no guard has 0/10 attack success, and that confidentiality (egress) checks are missing.
+- R1 (commit d1ed3f6) fixed the verified small items: verdict consumed per execution, audit session fields, the create_ticket content rule, coarse block reasons to the LLM, Chinese sentence split, chunking of long runs.
+- Plan the user approved: R1 → G2 Workspace domain (mail, files, webhook, run_command; new generic primitives for confidential egress and host allowlist) → Ollama weak agent → E11 for both domains + E12 → freeze and score once.
+- **Open decision:** whether G2 is evaluated by replay only (my recommendation) or with a full end-to-end agent.
+- Backups:
+  - The main repo is pushed to GitHub, up to date as of 7716abf, which includes IR/ and scripts/sync_models.sh.
+  - Models are in the private Hugging Face repo Weiz-mot6/fyp-guardrail-models (all 52 files verified).

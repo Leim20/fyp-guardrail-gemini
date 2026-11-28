@@ -146,3 +146,22 @@ def test_every_scenario_gets_the_same_verdicts_over_http_as_in_process(client):
     local, remote = new_guard(), RemoteGuard(client)
     for scenario in load_scenarios():
         assert replay(remote, scenario) == replay(local, scenario), scenario.id
+
+
+def test_one_check_covers_one_execution(client):
+    """Running a call again without asking again is reported, even if the first run was allowed."""
+    session = open_session(client)
+    search = {"tool": "search_kb", "args": {"query": "refund policy"}}
+    assert client.post(f"{session}/action", json=search).json()["verdict"] == "ALLOW"
+    assert client.post(f"{session}/outcome", json={**search, "executed": True}).json()["violation"] is None
+    again = client.post(f"{session}/outcome", json={**search, "executed": True}).json()
+    assert again["violation"] == "executed without being checked"
+
+
+def test_a_guard_error_is_audited_with_its_session(client, monkeypatch):
+    session = open_session(client, "traced")
+    guard = client.app.state.guard
+    monkeypatch.setattr("guardrail.guard.HybridSession.check_output", lambda self, text: 1 / 0)
+    client.post(f"{session}/output", json={"text": "x"})
+    record = guard.audit.records[-1]
+    assert record["layer"] == "error" and record["session"] == "traced" and record["principal"] == "C1001"

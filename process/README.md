@@ -10,6 +10,11 @@
   - The guard uses the iteration-3 classifier. This is a reported deviation from the adoption
     rule: `docs/distillation_plan.md` §10 and `GUARDRAIL_CHANGES.md` C1.
   - Probe numbers in the change log before C1 refer to iteration 2.
+  - R1 fixes the small issues from the Gemini review that checked out (`GUARDRAIL_CHANGES.md`
+    R1). 189 tests pass, and probe and scenario outcomes are unchanged.
+  - Next is the second domain pack (G2, a workspace assistant). It adds two generic
+    primitives: confidential values must not leave to external recipients, and webhook hosts
+    must be on an allowlist.
 - **Deadline:** the FYP is due on 2026-12-16, and the report is still to be written.
   Suggestions should fit that time.
 

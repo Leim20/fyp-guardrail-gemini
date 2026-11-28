@@ -220,11 +220,14 @@ class HybridSession:
     def record_outcome(self, call: ToolCall, executed: bool) -> str | None:
         """What the agent did with a call. The guard cannot stop an agent that ignores it, but
         it can see that it was ignored: a call that ran although it was blocked, or that was
-        never checked, is written to the audit log as a violation and returned."""
+        never checked, is written to the audit log as a violation and returned.
+
+        One check covers one execution: the report consumes the verdict, so running the same
+        call again without asking again counts as unchecked."""
         violation = None
+        verdict = self.verdicts.pop(call.key(), None)
         if executed:
             self.ledger.executed.append(call)
-            verdict = self.verdicts.get(call.key())
             if verdict is None:
                 violation = "executed without being checked"
             elif verdict == Verdict.BLOCK:
