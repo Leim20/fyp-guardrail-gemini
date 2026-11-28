@@ -49,10 +49,12 @@ def main() -> None:
           f"uncertain band holds {band.mean():.1%} of val ({int(band.sum())} texts, {int((labels[band] == 0).sum())} benign)")
     path = CONFIG_DIR / "guard.yaml"
     text = path.read_text(encoding="utf-8")
-    text = re.sub(r"(\n    strict: )[0-9.e+-]+", rf"\g<1>{threshold:.4g}", text)
-    text = re.sub(r"(\n  confident: )[0-9.e+-]+", rf"\g<1>{confident:.6g}", text)
+    # Written in full (repr round-trips a float exactly): rounding could put either threshold
+    # below the benign score it was chosen to clear.
+    text = re.sub(r"(\n    strict: )[0-9.e+-]+", rf"\g<1>{threshold!r}", text)
+    text = re.sub(r"(\n  confident: )[0-9.e+-]+", rf"\g<1>{confident!r}", text)
     path.write_text(text, encoding="utf-8")
-    print(f"wrote strict: {threshold:.4g}, confident: {confident:.6g} to {path.name}")
+    print(f"wrote strict: {threshold!r}, confident: {confident!r} to {path.name}")
 
 
 if __name__ == "__main__":

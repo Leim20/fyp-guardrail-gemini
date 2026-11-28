@@ -105,3 +105,14 @@ Semester 2 Gantt: Iter1 scope 21/09–04/10, Iter2 detection 05–18/10, Iter3 a
 - Lesson: let the user choose visual direction from real rendered pixels, never from ASCII previews or descriptions.
 - Console is only the Live view on recorded data; live SSE, layer toggles, other views wait for FastAPI (E19). Agreed order after the prototype: FastAPI → second domain (G2) → held-out eval (E11, E12) → wire console.
 - 2026-11-17 later: console prototype committed (d1b6452; `.claude/` kept out of the repo via `.git/info/exclude`). Then **E19 FastAPI done, uncommitted**: `api/main.py` (sessions, /input /action /outcome /output, /policy, /health; confirmation tokens bound to the exact call; fail closed), `api/client.py` (`RemoteGuard`), `tests/test_api.py` (10 tests; 16 scenarios identical over HTTP vs in process); engine `record_outcome` now returns a violation (executed after BLOCK / unchecked). 179 tests; forced and probes unchanged. Next: G2 (mail-assistant domain pack), G3, E11, E12, E16; console live wiring needs `GET /events` + engine trace.
+
+**2026-11-25: iteration 3 adopted as a reported deviation.**
+- The pre-declared rule said keep iteration 2, because deepset val F1 fell 1.0 → 0.947 (3 misses of 30).
+- Seed check, 3 seeds per arm (docs/distillation_plan.md §10, results/seed_variance.json):
+  - Synthetic data has no detectable effect on LLMail-dev AUC (0.934 vs 0.938).
+  - Iteration 2 lies outside all six runs on both rule measures.
+- The user chose iteration 3. The reasoning: compare these two fixed models, where training variance is irrelevant: LLMail-dev 0.825 → 0.897, CI excludes 0. The choice was made before the blind test.
+- The guard now uses deberta_v3_small_it3. Recalibrated thresholds: strict 0.00208, confident 0.99957. The calibrate rounding bug is fixed (repr).
+- Probes, full guard: 0/18 executed, 1/19 refused (B17). no_judge has 0 confirm-only. Forced compromise 45/45. GUARDRAIL_CHANGES.md C1.
+- Snapshot pushed to the private repo Leim20/fyp-guardrail-gemini, for the user's Gemini brainstorming. It is a one-off and does not track the main repo.
+- Next: G2 mail-assistant domain pack, E11 authoring (decision pending: DeepSeek + fresh Claude subagent half each, recommended), then freeze the guard and score E11, the blind test and E12 once each.

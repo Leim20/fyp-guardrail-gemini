@@ -333,3 +333,29 @@ is not used.
 - **The adoption decision is unchanged: keep iteration 2.** A rule for future iterations
   should compare several seeds per arm and scale the F1 tolerance to the number of
   positives.
+
+**Deviation from §1's rule (decided 2026-11-25, before LLMail-test is scored): the guard uses
+iteration 3.** This is a deliberate departure from the pre-declared rule, made by the student
+and reported as one. The reasoning:
+
+- The rule answers "which of these two trained models should the guard use?" For two fixed
+  models, training-run variance is irrelevant, and the paired bootstrap interval of the
+  LLMail-dev difference (+0.072, CI 0.038–0.107) is the right measure. Iteration 3 is better
+  there.
+- Iteration 3 is also better on the synthetic held-out set: indirect injections in data,
+  category A, 21% → 97.5%; minimal pairs 12/34 → 31/34. That set shares the teacher's style,
+  so the size of the gain is an upper bound, but its direction matches LLMail-dev.
+- The only failed criterion is deepset val F1: 3 more of 30 direct injections missed. The
+  tolerance of 0.01 cannot be met by any single error at n = 30, and the seed check shows
+  iteration 2's 1.000 is above all six new runs. In the guard, a classifier flag on the
+  user's own message is always reviewed by the judge (D2), so the classifier carries less of
+  the load for direct injection than for injection in data.
+- Bitext val FPR (0) and PromptShield val F1 (0.999) are unchanged.
+
+What stays fixed:
+- The seed-variance conclusion about the *recipe* is unchanged: no detectable effect of
+  synthetic data on LLMail-dev.
+- `evaluation.blind_test` scores both models once on LLMail-test, so the report shows
+  whether the choice holds on unseen data.
+- The guard's thresholds are recalibrated on the iteration-3 val (`guardrail.calibrate`)
+  before the held-out scenario evaluation (E11).

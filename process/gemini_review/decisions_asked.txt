@@ -1,0 +1,6 @@
+需要你拍板的 3 个关键决策（决定下一步直接落地方向）
+架构核心杀手锏二选一（在 12 月 16 日截止日前时间最紧的前提下）：
+路线 A（更适合工程/求职/技术同行“一眼哇塞”）：做 MCP Security Proxy（P1-3），让任何标准 MCP Agent 零代码侵入即可通过你的强制执行网关。
+路线 B（更适合学术答辩/堵死安全评委追问）：做 Turn Capability Compiler + 双向 IFC 污点（P1-2），彻底补齐目前“Policy 允许但用户没要求的操作仅靠单点 Alignment Judge”与 read/ticket 侧信道外泄的理论硬伤。
+第二个领域包（P1-1）定位：你更倾向于原计划的纯 Mail Assistant，还是升级为包含 run_shell_command + read_workspace_file + send_email / http_post 的 DevOps / Mail Workspace（直接呼应你 IR Figure 3.30 调研第一名 93.8% 的命令执行风险，同时彻底去掉“电商课程作业感”）？
+是否现在就启动执行：如果你认可这份路线图，告诉我你想先落哪几个模块（比如先修掉 P0-1 的 4 个代码硬伤 + 改造 P0-2 Console 交互拉闸与爆炸半径对照），我可以直接在工作区里帮你排详细实施计划并动手写代码。

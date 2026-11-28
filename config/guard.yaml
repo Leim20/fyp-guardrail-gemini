@@ -7,7 +7,7 @@
 domain: novamart
 
 classifier:
-  model: deberta_v3_small   # models/<name>; becomes deberta_v3_small_it3 if iteration 3 is adopted
+  model: deberta_v3_small_it3   # models/<name>; iteration 3 (docs/distillation_plan.md §10: a reported deviation)
   device: cpu               # NFR01/NFR03: the guard must run on a CPU-only deployment
 
   # Detection threshold per scan strictness (the trust.yaml of the domain):
@@ -17,12 +17,13 @@ classifier:
   #           injections live, so more false alarms are acceptable there: a false alarm only
   #           removes a sentence (SANITIZE), it does not refuse the customer.
   # `uv run python -m guardrail.calibrate` recomputes strict on val and rewrites the line below.
-  # 1%, not more: the model's benign scores sit near 1e-5, so a looser budget pushes the
-  # threshold into numerical noise for only +2 points of val recall (calibrate output, 2026-11-13).
+  # 1%: iteration 3 on its val gives recall 0.992 at strict against 0.986 at its own threshold
+  # (calibrate output, 2026-11-25). Iteration 2's benign scores sat near 1e-5, where a looser
+  # budget only pushed the threshold into numerical noise.
   strict_max_fpr: 0.01
   thresholds:
     normal: model
-    strict: 0.0002695
+    strict: 0.0020829709246754646
 
 cascade:
   # Confidence cascade ("accept when confident, escalate when unsure"). A classifier flag at or
@@ -32,8 +33,9 @@ cascade:
   # a false alarm there refuses a person and policy still bounds what they can do. `confident` is set by
   # guardrail.calibrate just above the highest val score of any benign text: on val no benign
   # text reaches it (rule of three: under 0.5% false positives with 95% confidence), and only
-  # 1.4% of val texts fall in the uncertain band (calibrate output, 2026-11-13).
-  confident: 0.999713
+  # 3.8% of val texts (71, two of them benign) fall in the uncertain band (calibrate output for
+  # iteration 3, 2026-11-25; 1.4% with iteration 2, whose val had no synthetic texts).
+  confident: 0.9995695352554321
   judge_mode: cache          # live | cache | replay (guardrail.llm.Recorded)
 
 rules:
